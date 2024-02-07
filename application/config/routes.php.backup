@@ -1,0 +1,270 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/*
+| -------------------------------------------------------------------------
+| URI ROUTING
+| -------------------------------------------------------------------------
+| This file lets you re-map URI requests to specific controller functions.
+|
+| Typically there is a one-to-one relationship between a URL string
+| and its corresponding controller class/method. The segments in a
+| URL normally follow this pattern:
+|
+|	example.com/class/method/id/
+|
+| In some instances, however, you may want to remap this relationship
+| so that a different class/function is called than the one
+| corresponding to the URL.
+|
+| Please see the user guide for complete details:
+|
+|	http://codeigniter.com/user_guide/general/routing.html
+|
+| -------------------------------------------------------------------------
+| RESERVED ROUTES
+| -------------------------------------------------------------------------
+|
+| There are three reserved routes:
+|
+|	$route['default_controller'] = 'welcome';
+|
+| This route indicates which controller class should be loaded if the
+| URI contains no data. In the above example, the "welcome" class
+| would be loaded.
+|
+|	$route['404_override'] = 'errors/page_missing';
+|
+| This route will tell the Router which controller/method to use if those
+| provided in the URL cannot be matched to a valid route.
+|
+|	$route['translate_uri_dashes'] = FALSE;
+|
+| This is not exactly a route, but allows you to automatically route
+| controller and method names that contain dashes. '-' isn't a valid
+| class or method name character, so it requires translation.
+| When you set this option to TRUE, it will replace ALL dashes in the
+| controller and method URI segments.
+|
+| Examples:	my-controller/index	-> my_controller/index
+|		my-controller/my-method	-> my_controller/my_method
+*/
+$route['Login'] = 'Login/loginForm';
+$route['dashboard'] = 'Home';
+$route['private_car/lead-list'] = 'Home/leadList';
+$route['lead-list'] = 'Home/leadList';
+                
+
+$route['health/lead-list'] = 'Health/leadList';
+$route['private_car/lead-list?any'] = 'Home/leadList';
+
+$route['tell-caller-lead-list'] = 'Home/tellLeadList';
+$route['upload-data'] = 'Home/UploadData';
+$route['private_car/UploadData'] = 'Home/UploadData';
+
+$route['health/UploadData'] = 'Health/UploadData';
+$route['leadListAjax'] = 'Home/leadListAjax';
+$route['totalLeadListAjax'] = 'Home/totalLeadListAjax';
+$route['leadtellListAjax'] = 'Home/leadtellListAjax';
+$route['subdisposition'] = 'Home/subdispositionAjax';
+$route['subdispositionHtml'] = 'Home/subdispositionHtml';
+$route['proposal'] = 'Home/proposal';
+$route['private_car/proposal'] = 'Home/proposal';
+$route['health/proposal'] = 'Health/proposal';
+$route['health/additional-features'] = 'Health/additionalFeatures';
+
+$route['Logout'] = 'Login/logout';
+$route['Api/dialerAllLead'] = 'Api/dialerAllLead';
+$route['Api/AutoAssignTellecaller'] = 'Api/autoAssignTellecaller';
+$route['renewa_base'] = 'Home/renewa_base';
+
+$route['assignTelecaller'] = 'Home/assignTelecaller';
+$route['assignTelecallerHealth'] = 'Health/assignTelecaller';
+$route['getusers'] = 'Home/getusers';
+
+$route['Submitdisposition'] = 'Home/Submitdisposition';
+$route['private_car/break-in-case'] = 'Home/breakInCase';
+$route['private_car/additional-features'] = 'Home/additionalFeatures';
+$route['private_car/reports'] = 'Home/breakInCase';
+$route['private_car/training_marketing'] = 'Home/TrainingMarketing';
+$route['training_marketing'] = 'Home/TrainingMarketing';
+$route['private_car/actionable'] = 'Home/Actionable';
+$route['health/actionable'] = 'Health/Actionable';
+$route['PolicyMasterDetails'] = 'Home/PolicyMasterSMSDetails_ajax';
+$route['HealthPolicyMasterDetails'] = 'Health/PolicyMasterSMSDetails_ajax';
+$route['SendMessage'] = 'Home/SendMessage';
+$route['SendMessageHealth'] = 'health/SendMessageHealth';
+$route['PolicyVerifyApi'] = 'Home/PolicyVerifyApi';
+$route['PolicyDetails'] = 'Home/PolicyDetails';
+$route['SendProposalAjax'] = 'Home/SendProposalAjax';
+$route['lost_case'] = 'Home/lost_case';
+$route['renewal_discrepancy'] = 'Home/renewal_discrepancy';
+$route['dms'] = 'Home/dms';
+
+$route['viewProposalDetails'] = 'Home/viewProposalDetails';
+$route['healthPolicyDetails'] = 'Health/viewProposalDetails';
+
+/*----------- Routes By Pandurang ----------------*/ 
+$route['getDuplicatePolicyDetails'] = 'Home/getDuplicatePolicyDetails';
+$route['autoLogin'] = 'Login/autoLoginForm';
+$route['leadAutoAssign'] = 'Home/leadAutoAssign';
+$route['proposalValidate'] = 'Proposal/proposalValidate';
+
+$route['smLeadListAjax'] = 'front/SalesManager/smLeadListAjax';
+
+$route['PolicyReminderDetails'] = 'Home/PolicyRenewalDetails_ajax';
+$route['PolicyRenewalNoticeDetails'] = 'Home/PolicyRenewalNoticeDetails';
+$route['SendPolicyRenewalNoticeAjax'] = 'Home/SendPolicyRenewalNoticeAjax';
+
+
+$route['BreakinValidate'] = 'Home/BreakinValidate_Ajax';
+
+/*----------- Routes By Dharmesh ----------------*/
+
+$route['private_car/cheque_follow_up'] = 'Home/ChequeFollowUp';
+$route['cheque_follow_up'] = 'Home/ChequeFollowUp';
+$route['leadChequeFollowupAjax'] = 'Home/leadChequeFollowupAjax';
+$route['auditor_leads'] = 'Home/auditorleadsList';
+$route['auditor_screen'] = 'Home/auditorLeadData';
+$route['auditorsLeadsAjax'] = 'Home/auditorsLeadsAjax';
+$route['submitTelecallerrating'] = 'Home/telecallerCallRating';
+
+/*----------- Routes By Dharmesh ----------------*/
+
+
+/*
+;
+$route['hospicash'] = 'Home/PolicyForm';
+$route['gadgets'] = 'Home/PolicyForm';
+$route['hospicash/get-plans'] = 'Home/getPlans';
+$route['hospicash/Generateproposal'] = 'Home/Generateproposal';
+$route['hospicash/success'] = 'Home/buypolicy';
+*/
+/*Myaccount*/
+//for myaccount
+$route['myaccount'] = 'front/myaccount/Dashboard';
+$route['myaccount/hospicash'] = 'front/myaccount/Dashboard/SoldPolicyData';
+
+$route['cliam-policy'] = 'front/myaccount/dashboard/cliam_policy';
+$route['upload-courier-document'] = 'front/myaccount/dashboard/upload_courier_document';
+$route['upload-claim-courier-document'] = 'front/myaccount/dashboard/upload_courier_document_action';
+$route['policy-summery'] = 'front/myaccount/dashboard/policy_sold';
+$route['myaccount/dashboard'] = 'front/myaccount/dashboard';
+$route['myaccount/claim-issue-policy/(:any)'] = 'front/myaccount/dashboard/claim_policy_data/$1';
+$route['myaccount/claim-upload-document/(:any)'] = 'front/myaccount/dashboard/claim_upload_document/$1';
+$route['myaccount/claim-courier-process/(:any)'] = 'front/myaccount/dashboard/claim_courier_process_data/$1';
+$route['myaccount/claim-courier-view/(:any)'] = 'front/myaccount/dashboard/claim_courier_view/$1';
+$route['myaccount/download-policy/(:any)'] = 'front/myaccount/dashboard/download_policy_data/$1';
+$route['upload-claim-document'] =  'front/myaccount/dashboard/upload_doument_cliam';
+$route['upload-claim-document-process'] =  'front/myaccount/dashboard/upload_doument_cliam_process';
+
+
+/*End*/
+
+
+
+$route['GetpincodeData'] = 'Home/Getpincode';
+$route['ForgotPassword'] = 'Login/forgotPassword';
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
+
+
+$route['show-policy-details'] = 'Home_Controller/showPolicyDetails';
+$route['submit-policy'] = 'Home_Controller/submitPolicy';
+$route['default_controller'] = 'Login';
+$route['admin'] = 'Login/admin';
+$route['admin-login'] = 'Login/submitAdminLogin';
+$route['global_login'] = 'Login/global_login';
+
+
+
+$route['admin/feed-file'] = 'Feedfile/index';
+$route['admin/downloadfeedfile/(:any)/(:any)'] = 'Feedfile/downloadfeedfile/$1/$2';
+$route['admin/upload_64vb_docemnt'] = 'Sixtyfour/upload_64vb_docemnt';
+
+
+$route['role-assign'] = 'front/Admin/roleList';
+
+/*Role Process */
+$route['add-user'] = 'front/Admin/addUserList';
+$route['userListAjax'] = 'front/Admin/userListAjax';
+$route['UserDataById'] = 'front/Admin/UserDataById';
+$route['UserAction'] = 'front/Admin/UserAction';
+$route['productdashboard'] = 'front/Admin/productDashboard';
+$route['private_car/salesdashboard'] = 'Home/salesDashboard';
+$route['health/salesdashboard'] = 'Health/salesDashboard';
+/*
+$route['add-user'] = 'front/Admin/AdminList';
+*/
+/*END*/
+
+
+/*Role list*/
+
+/*$route['add-user'] = 'front/Admin/addUserList';*/
+$route['roleListAjax'] = 'front/Admin/roleListAjax';
+$route['RoleAction'] = 'front/Admin/RoleAction';
+/*$route['UserDataById'] = 'front/Admin/UserDataById';*/
+
+
+/*End*/
+
+/*Admin*/
+$route['admin/dashboard'] = 'front/Admin/index';
+$route['admin/lead-list'] = 'front/Admin/AdminLead';
+$route['admin/add_users'] = 'front/Admin/addUserList';
+$route['UserActiveDeactive'] = 'front/Admin/UserActiveDeactive';
+$route['admin/add_role'] = 'front/Admin/roleList';
+$route['admin/additional-features'] = 'front/Admin/additionalFeatures';
+$route['uploadNonContactable'] = 'front/Admin/uploadNonContactable';
+$route['uploadNonContactableHealth'] = 'front/Admin/uploadNonContactableHealth';
+$route['downloadnoncontactable'] = 'front/Admin/downloadNoncontactable';
+$route['downloadnoncontactablehealth'] = 'front/Admin/downloadNoncontactableHealth';
+$route['UserAssignProductDetails'] = 'front/Admin/UserAssignProductDetails';
+
+
+/**/
+/*----------- Reports ----------------*/
+
+////AMAR --------------
+$route['admin/Report'] = 'front/Report_view';
+$route['rcc-report-ajax'] = 'front/Report_view/rcc_report_ajax';
+$route['Report-drive-sales'] = 'front/Report/Renewal_drive_sales';
+$route['DownloadReport'] = 'front/Report/download_report';
+$route['RCC-Report'] = 'front/Report/RCC_Report';
+$route['Vertical-Wise'] = 'front/Report/Vertical_wise_report';
+$route['Waterfall-Report'] = 'front/Report/Waterfall_Report';
+
+$route['Report-dump'] = 'front/Report/CRM_Disposition_Dump';
+
+
+////AMAR --------------
+
+	/*--------- Dharmesh --------------*/
+
+$route['Report_view'] = 'front/Report_view';
+$route['admin/Sales_team_mis'] = 'front/Report_view/sales_team_mis_view';
+$route['admin/Renewal_mis'] = 'front/Report_view/sales_team_mis_view';
+$route['sales_team_mis_ajax'] = 'front/Report_view/sales_team_mis_ajax';
+
+$route['Report-vertical-wise-ajax'] = 'front/Report_view/vertical_wise_ajax';
+$route['Report-renewal-sales-ajax'] = 'front/Report_view/report_renewal_sales_ajax';
+
+$route['water_fall_report_ajax'] = 'front/Report_view/Waterfall_report_view_ajax';
+$route['Mis_Aod_Mtd_view_ajax'] = 'front/Report_view/Mis_Aod_Mtd_view_ajax';
+
+$route['Crm_dispostion_dump_ajax'] = 'front/Report_view/crm_dispostion_dump_ajax';
+	/*--------- Dharmesh --------------*/
+
+//Start --Winner Announment routes
+
+$route['home-dashboard'] = 'front/Admin/home_dashboard';
+
+//Start -- Winner Announment routes
+
+/********** For Twowheeler ************/
+$route['twowheeler/lead-list'] = 'Twowheeler/leadList';
+
+
+/********** End For Twowheeler ************/
+

@@ -1,0 +1,127 @@
+/*
+Author       : Pandurang Aglave
+Template Name: Digi dyog - ERP
+Version      : 1
+*/
+
+
+/*  Fullscreen loader  */
+#loader-spin {
+    position:fixed;
+    width:100%;
+    left:0;right:0;top:0;bottom:0;
+    background-color: rgba(255,255,255,0.7);
+    z-index:9999;
+    display:none;
+}
+
+@-webkit-keyframes spin {
+    from {-webkit-transform:rotate(0deg);}
+    to {-webkit-transform:rotate(360deg);}
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+#loader-spin::after {
+    content:'';
+    display:block;
+    position:absolute;
+    left:48%;top:40%;
+    width:60px;height:60px;
+    border-style:solid;
+    border-color:#f95e7d;
+    border-top-color:transparent;
+    border-width: 6px;
+    border-radius:50%;
+    -webkit-animation: spin .8s linear infinite;
+    animation: spin .8s linear infinite;
+}
+
+.error-text {
+	color: #f7531f;
+    margin-top: 5px;
+    position: relative;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.blinking-text {
+    animation: animate 3.5s linear infinite;
+}
+
+/*.logo-lg img{
+    width: 250px;
+    height: 65px;
+}*/
+
+.navbar-custom {
+    background-color: #5f6368;
+}
+
+.display-none {
+    display: none;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+
+.gradient_mix{
+    background-color: var(--cui-warning, #f6960b);
+    background-image: linear-gradient(45deg, var(--cui-warning-start, #f9b115) 0%, var(--cui-warning-stop, #f6960b 100%));
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
+
+.gradient_green{
+    background: linear-gradient(90deg, rgba(180,58,95,1) 0%, rgba(253,29,180,1) 100%, rgba(252,114,69,0.8661734957654936) 100%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
+
+.gradient_blue{
+    background-color: var(--cui-primary, #1f1498);
+    background-image: linear-gradient(45deg, var(--cui-primary-start, #321fdb) 0%, var(--cui-primary-stop, #1f1498 100%));
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
+
+.gradient_light_blue{
+    background-color: var(--cui-info, #2982cc);
+    background-image: linear-gradient(45deg, var(--cui-info-start, #39f) 0%, var(--cui-info-stop, #2982cc 100%));
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
+
+.gradient_orange{
+    background: linear-gradient(90deg, rgba(180,58,95,1) 0%, rgba(253,29,29,1) 39%, rgba(252,114,69,1) 85%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
+
+.avatar {
+    background : none!important;
+}
+
+.brround {
+    border: 0.1px solid #ff5770;
+}
+
+.ui-datepicker{
+    z-index: 99999 !important;
+}

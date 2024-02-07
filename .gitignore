@@ -1,0 +1,4 @@
+# ignore ALL files in ANY directory named temp
+application/cache/*.php
+application/logs/*.php
+#system/ci_session 

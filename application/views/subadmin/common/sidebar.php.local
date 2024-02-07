@@ -1,0 +1,46 @@
+<?php 
+$page = $this->uri->segment(1);
+$menu_array=getSidemenu();
+$product_type = $this->session->userdata('product_type');
+//echo $product_type; die;
+
+  // echo "<pre>"; 
+  // print_r($menu_array); 
+$menu_privilege = $this->session->userdata('login_detail');
+//echo "<pre>";print_r($menu_privilege['role_id']); die;
+?>
+<?php if($page!="productdashboard" && $page!="dashboard" || $menu_privilege['role_id']!='4' && $menu_privilege['role_id']!='1' && $menu_privilege['role_id']!='5'){?>
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-inner slimscroll">
+        <div id="sidebar-menu" class="sidebar-menu">
+            <ul>
+                <?php foreach ($menu_array as $value) {
+                    if($menu_privilege['role_id']==4){  
+                        $menu_url=($value['menu_url']=='dashboard')?base_url().''."dashboard":base_url().$page.'/'.$value['menu_url'];                      
+
+                      }else{
+
+                         if($value['id']==18){                            
+                         $menu_url=($value['menu_url']=='productdashboard')?base_url().''."productdashboard":base_url().$page.'/'.$value['menu_url'];
+                         }
+                         else if($value['id']==12 || $value['id']==13){
+                            $menu_url= $menu_url=base_url().$value['menu_url'];  
+                         }else if($value['id']==14 || $value['id']==15 || $value['id']==16 || $value['id']==19 || $value['id']==9){
+                               $menu_url=base_url().$product_type.'/'.$value['menu_url'];                               
+                           }else{
+                            $menu_url=($value['menu_url']=='dashboard')?base_url().''."dashboard":base_url().$value['menu_url'];
+                          }                       
+                        
+                     }
+
+                     ?>
+
+                    <li><a  href="<?php echo $menu_url?>"><i class="<?php echo $value['menu_icon']?>"></i> <span><?php echo $value['menu_name'];?></span></a></li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<?php }?>
+<!-- /Sidebar -->
