@@ -3,6 +3,9 @@ $(document).ready(function () {
   $("#btn_add_chapter_documents_modal").click(function () {
     $("#add-chapter-documents-modal").modal("show");
   });
+  $('.modal-close').click(function(){
+    $("#add-chapter-documents-modal").modal("hide");
+  })
 
   $("#document_file, #update_document_file").change(function () {
     var file = this.files[0];
@@ -40,7 +43,7 @@ $(document).ready(function () {
       course_category_id == undefined
     ) {
       $("#add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category is required.</div>"
       );
       $("#course_category_id").focus();
       return false;
@@ -53,7 +56,7 @@ $(document).ready(function () {
       course_master_id == undefined
     ) {
       $("#add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course name is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course name is required.</div>"
       );
       $("#course_master_id").focus();
       return false;
@@ -66,7 +69,7 @@ $(document).ready(function () {
       chapter_master_id == undefined
     ) {
       $("#add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course related general information is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course related general information is required.</div>"
       );
       $("#chapter_master_id").focus();
       return false;
@@ -79,7 +82,7 @@ $(document).ready(function () {
       document_title == undefined
     ) {
       $("#add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Document title is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Document title is required.</div>"
       );
       $("#document_title").focus();
       return false;
@@ -92,7 +95,7 @@ $(document).ready(function () {
       document_file == undefined
     ) {
       $("#add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Document file is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Document file is required.</div>"
       );
       $("#document_file").focus();
       return false;
@@ -105,7 +108,7 @@ $(document).ready(function () {
     //   document_link == undefined
     // ) {
     //   $("#add_status").html(
-    //     "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Document link is required.</div>"
+    //     "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Document link is required.</div>"
     //   );
     //   $("#document_link").focus();
     //   return false;
@@ -147,7 +150,7 @@ $(document).ready(function () {
         } else {
           $("#btn_add_course_category").attr("disabled", false);
           $("#add_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );
@@ -259,6 +262,9 @@ $(document).ready(function () {
       $("#update_document_status").html(status_html);
 
       $("#update-chapter-documents-modal").modal("show");
+      $('.modal-close').click(function(){
+        $("#update-chapter-documents-modal").modal("hide");
+      })
 
       $("#loader-spin").hide();
     }
@@ -288,7 +294,7 @@ $(document).ready(function () {
       course_category_id == undefined
     ) {
       $("#update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category is required.</div>"
       );
       $("#update_course_category_id").focus();
       return false;
@@ -301,7 +307,7 @@ $(document).ready(function () {
       course_master_id == undefined
     ) {
       $("#update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course name is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course name is required.</div>"
       );
       $("#update_course_master_id").focus();
       return false;
@@ -314,7 +320,7 @@ $(document).ready(function () {
       chapter_master_id == undefined
     ) {
       $("#update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course related general information is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course related general information is required.</div>"
       );
       $("#update_chapter_master_id").focus();
       return false;
@@ -327,7 +333,7 @@ $(document).ready(function () {
       document_title == undefined
     ) {
       $("#update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Document title is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Document title is required.</div>"
       );
       $("#update_document_title").focus();
       return false;
@@ -372,7 +378,7 @@ $(document).ready(function () {
         } else {
           $("#btn_update_chapter_document_details").attr("disabled", false);
           $("#update_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );

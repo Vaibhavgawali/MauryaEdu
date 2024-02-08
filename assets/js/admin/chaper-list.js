@@ -3,6 +3,9 @@ $(document).ready(function () {
   $("#btn_add_chapter_modal").click(function () {
     $("#add-chapter-modal").modal("show");
   });
+  $('.modal-close').click(function(){ 
+    $("#add-chapter-modal").modal("hide");
+  })
 
   $("#course_category_id, #update_course_category_id").change(function () {
     $("#course_master_id").html(
@@ -61,7 +64,7 @@ $(document).ready(function () {
       course_category_id == "undefined"
     ) {
       $("#add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category required.</div>"
       );
       return false;
     }
@@ -73,7 +76,7 @@ $(document).ready(function () {
       course_master_id == "undefined"
     ) {
       $("#add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course  is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course  is required.</div>"
       );
       return false;
     }
@@ -97,7 +100,7 @@ $(document).ready(function () {
       course_category_id == undefined
     ) {
       $("#chapter_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category is required.</div>"
       );
       $("#course_category_id").focus();
       return false;
@@ -110,7 +113,7 @@ $(document).ready(function () {
       course_master_id == undefined
     ) {
       $("#chapter_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course name is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course name is required.</div>"
       );
       $("#course_master_id").focus();
       return false;
@@ -123,7 +126,7 @@ $(document).ready(function () {
       chapter_name == undefined
     ) {
       $("#chapter_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Chapter name is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Chapter name is required.</div>"
       );
       $("#chapter_name").focus();
       return false;
@@ -159,7 +162,7 @@ $(document).ready(function () {
         } else {
           $("#btn_add_chapter").attr("disabled", false);
           $("#chapter_add_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );
@@ -245,6 +248,9 @@ $(document).ready(function () {
           );
 
           $("#update-chapter-modal").modal("show");
+          $('.modal-close').click(function(){ 
+            $("#update-chapter-modal").modal("hide");
+          })
         } else {
           generateNotification("error", res.message);
           return false;
@@ -271,7 +277,7 @@ $(document).ready(function () {
       course_category_id == undefined
     ) {
       $("#chapter_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category is required.</div>"
       );
       $("#course_category_id").focus();
       return false;
@@ -284,7 +290,7 @@ $(document).ready(function () {
       course_master_id == undefined
     ) {
       $("#chapter_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course name is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course name is required.</div>"
       );
       $("#course_master_id").focus();
       return false;
@@ -297,7 +303,7 @@ $(document).ready(function () {
       chapter_name == undefined
     ) {
       $("#chapter_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Chapter name is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Chapter name is required.</div>"
       );
       $("#chapter_name").focus();
       return false;
@@ -335,7 +341,7 @@ $(document).ready(function () {
         } else {
           $("#btn_add_chapter").attr("disabled", false);
           $("#chapter_update_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );

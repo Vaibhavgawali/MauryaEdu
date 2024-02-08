@@ -1,21 +1,26 @@
-<!--footer-->
-            <footer class="footer">
-                <div class="container">
-                    <div class="row align-items-center flex-row-reverse">
-                        <div class="col-lg-12 col-sm-12 mt-3 mt-lg-0 text-center">
-                        &copy;Maurya <script>document.write(new Date().getFullYear())</script>, Designed & Developed By <a href="#"  class="btn btn-link box-shadow-0 px-0">Zynovvatech</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- End Footer-->
+
+        <!-- main-panel ends -->
         </div>
+      <!-- page-body-wrapper ends -->
     </div>
 </div>
-
-<!-- Back to top -->
-<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
-
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="<?php echo base_url('assets/js/vendors/vendor.bundle.base.js');?>"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="<?php echo base_url('assets/js/vendors/chart.js/Chart.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/jquery.cookie.js');?>" type="text/javascript"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="<?php echo base_url('assets/js/off-canvas.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/hoverable-collapse.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/misc.js');?>"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="<?php echo base_url('assets/js/dashboard.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/todolist.js');?>"></script>
+    
 <!-- Dashboard js -->
 <script src="<?php echo base_url('assets/js/vendors/jquery-3.2.1.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/vendors/bootstrap.bundle.min.js'); ?>"></script>
@@ -101,7 +106,6 @@
 
 </script>
 <?php loadJs($application_version); ?>
-
-</body>
-
+    <!-- End custom js for this page -->
+  </body>
 </html>

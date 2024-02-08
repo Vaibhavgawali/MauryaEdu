@@ -3,6 +3,9 @@ $(document).ready(function () {
   $("#btn_add_branch_admin_modal").click(function () {
     $("#add-branch-admin-modal").modal("show");
   });
+  $('.modal-close').click(function(){
+    $("#add-branch-admin-modal").modal("hide");
+  })
 
   $("#admin_contact").keypress(function (e) {
     //if the letter is not digit then display error and don't type anything
@@ -34,7 +37,7 @@ $(document).ready(function () {
       admin_name == undefined
     ) {
       $("#branch_admin_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Name is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Name is required.</div>"
       );
       $("#admin_name").focus();
       return false;
@@ -47,7 +50,7 @@ $(document).ready(function () {
       branch_id == undefined
     ) {
       $("#branch_admin_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Branch is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Branch is required.</div>"
       );
       $("#branch_id").focus();
       return false;
@@ -60,7 +63,7 @@ $(document).ready(function () {
       admin_emailid == undefined
     ) {
       $("#branch_admin_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>"
       );
       $("#admin_emailid").focus();
       return false;
@@ -73,7 +76,7 @@ $(document).ready(function () {
 
     if (!validateEmail(admin_emailid)) {
       $("#branch_admin_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Email is invalid.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Email is invalid.</div>"
       );
       $("#admin_emailid").focus();
       return false;
@@ -86,7 +89,7 @@ $(document).ready(function () {
       admin_contact == undefined
     ) {
       $("#branch_admin_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Contact is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Contact is required.</div>"
       );
       $("#admin_contact").focus();
       return false;
@@ -94,7 +97,7 @@ $(document).ready(function () {
 
     if (admin_contact.length !== 10) {
       $("#branch_admin_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Contact is invalid.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Contact is invalid.</div>"
       );
       $("#admin_contact").focus();
       return false;
@@ -130,7 +133,7 @@ $(document).ready(function () {
         } else {
           $("#btn_add_branch_admin").attr("disabled", false);
           $("#branch_admin_add_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );
@@ -215,6 +218,10 @@ $(document).ready(function () {
             res.branch_admin_details.admin_status
           );
           $("#update-branch-admin-modal").modal("show");
+
+          $('.modal-close').click(function(){
+            $("#update-branch-admin-modal").modal("hide");
+          })
         } else {
           generateNotification("error", res.message);
           return false;
@@ -240,7 +247,7 @@ $(document).ready(function () {
       admin_name == undefined
     ) {
       $("#branch_admin_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Branch is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Branch is required.</div>"
       );
       $("#update_branch_admin_name").focus();
       return false;
@@ -253,7 +260,7 @@ $(document).ready(function () {
       branch_id == undefined
     ) {
       $("#branch_admin_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Branch is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Branch is required.</div>"
       );
       $("#update_branch_id").focus();
       return false;
@@ -266,7 +273,7 @@ $(document).ready(function () {
       admin_emailid == undefined
     ) {
       $("#branch_admin_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>"
       );
       $("#update_branch_admin_emailid").focus();
       return false;
@@ -279,15 +286,15 @@ $(document).ready(function () {
       admin_contact == undefined
     ) {
       $("#branch_admin_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Contact is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Contact is required.</div>"
       );
       $("#update_branch_contact").focus();
       return false;
     }
 
     if (admin_contact.length !== 10) {
-      $("#branch_admin_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Contact is invalid.</div>"
+      $("#branch_admin_update_status").html(
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Contact is invalid.</div>"
       );
       $("#update_branch_admin_contact").focus();
       return false;
@@ -325,7 +332,7 @@ $(document).ready(function () {
         } else {
           $("#btn_update_branch").attr("disabled", false);
           $("#branch_admin_update_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );

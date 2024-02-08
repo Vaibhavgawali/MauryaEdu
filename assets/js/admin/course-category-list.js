@@ -1,8 +1,12 @@
 $(document).ready(function () {
   //--- Open add course_category modal
   $("#btn_add_course_category_modal").click(function () {
+    
     $("#add-course-category-modal").modal("show");
   });
+  $(".modal-close").click(function () {
+    $("#add-course-category-modal").modal("hide");
+    })
 
   // add course category
   $("#btn_add_course_category").click(function () {
@@ -18,7 +22,7 @@ $(document).ready(function () {
       course_category_name == undefined
     ) {
       $("#course_category_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category is required.</div>"
       );
       $("#course_category_name").focus();
       return false;
@@ -52,7 +56,7 @@ $(document).ready(function () {
         } else {
           $("#btn_add_course_category").attr("disabled", false);
           $("#course_category_add_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );
@@ -137,6 +141,10 @@ $(document).ready(function () {
             );
 
             $("#update-course-category-modal").modal("show");
+            $(".modal-close").click(function () {
+              $("#update-course-category-modal").modal("hide");
+                
+              })
           } else {
             generateNotification("error", res.message);
             return false;
@@ -162,7 +170,7 @@ $(document).ready(function () {
       course_category_name == undefined
     ) {
       $("#course_category_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category is required.</div>"
       );
       $("#course_category_name").focus();
       return false;
@@ -198,7 +206,7 @@ $(document).ready(function () {
         } else {
           $("#btn_update_course_category").attr("disabled", false);
           $("#course_category_update_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );

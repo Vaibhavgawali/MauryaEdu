@@ -3,6 +3,9 @@ $(document).ready(function () {
   $("#btn_update_status_modal").click(function () {
     $("#update-status-modal").modal("show");
   });
+  $('.modal-close').click(function(){
+    $("#update-status-modal").modal("hide");
+  })
 
   // datatble initialization
   var dataTable = $("#student_list").DataTable({
@@ -121,7 +124,7 @@ $(document).ready(function () {
         } else {
           $("#btn_update_status").attr("disabled", false);
           $("#enrollment_student_update_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );
