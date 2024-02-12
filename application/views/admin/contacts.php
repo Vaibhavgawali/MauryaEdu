@@ -22,6 +22,7 @@
                             <th>Full Name</th>
                             <th>Email</th>
                             <th>Phone</th>
+                            <th>Branch</th>
                             <th>Created</th>
                             <th>Action</th>                            
                         </tr>

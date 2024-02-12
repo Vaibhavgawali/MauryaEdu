@@ -176,6 +176,16 @@ $route['admin/get-enrollment-student-details'] = 'admin/Enrollments/GetEnrollmen
 $route['admin/enrollment-student-update-process'] = 'admin/Enrollments/EnrollmentStudentUpdateProcess';
 $route['admin/student-enrollemnt-delete'] = 'admin/Enrollments/DeleteEnrollmentStudent';
 
+//--- Certificates
+$route['admin/certificate-add-process'] = 'admin/Enrollments/AddStudentsCertificateDetails';
+$route['admin/get-certificate-details'] = 'admin/Enrollments/GetStudentsCertificateDetails';
+$route['admin/certificate-update-process'] = 'admin/Enrollments/StudentsCertificateUpdateProcess';
+
+//--- Id Card
+$route['admin/id-card-add-process'] = 'admin/Enrollments/AddStudentsIdCardDetails';
+$route['admin/get-id-card-details'] = 'admin/Enrollments/GetStudentsIdCardDetails';
+$route['admin/id-card-update-process'] = 'admin/Enrollments/StudentsIdCardUpdateProcess';
+
 //--- Discount Coupon info
 $route['admin/discount-coupon'] = 'admin/DiscountCoupon';
 $route['admin/discount-coupon-add'] = 'admin/DiscountCoupon/AddDiscountCoupon';
@@ -343,7 +353,6 @@ $route['subadmin/course-update-process'] = 'subadmin/Course/CourseUpdateProcess'
 $route['subadmin/new-course-send-notification'] = 'subadmin/Course/NewCourseSendNotification';
 $route['subadmin/delete-course'] = 'subadmin/Course/CourseDelete';
 
-
 //--- Chapter list
 $route['subadmin/chapter-list'] = 'subadmin/Chaper';
 $route['subadmin/get-course-list-from-category'] = 'subadmin/Chaper/GetCourseListFromCategory';
@@ -421,6 +430,16 @@ $route['subadmin/enrollment-list-ajax'] = 'subadmin/Enrollments/StudentListAjax'
 $route['subadmin/get-enrollment-student-details'] = 'subadmin/Enrollments/GetEnrollmentStudentsDetails';
 $route['subadmin/enrollment-student-update-process'] = 'subadmin/Enrollments/EnrollmentStudentUpdateProcess';
 $route['subadmin/student-enrollemnt-delete'] = 'subadmin/Enrollments/DeleteEnrollmentStudent';
+
+//--- Certificates
+$route['subadmin/certificate-add-process'] = 'subadmin/Enrollments/AddStudentsCertificateDetails';
+$route['subadmin/get-certificate-details'] = 'subadmin/Enrollments/GetStudentsCertificateDetails';
+$route['subadmin/certificate-update-process'] = 'subadmin/Enrollments/StudentsCertificateUpdateProcess';
+
+//--- Id Card
+$route['subadmin/id-card-add-process'] = 'subadmin/Enrollments/AddStudentsIdCardDetails';
+$route['subadmin/get-id-card-details'] = 'subadmin/Enrollments/GetStudentsIdCardDetails';
+$route['subadmin/id-card-update-process'] = 'subadmin/Enrollments/StudentsIdCardUpdateProcess';
 
 //--- Discount Coupon info
 $route['subadmin/discount-coupon'] = 'subadmin/DiscountCoupon';

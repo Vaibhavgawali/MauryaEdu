@@ -3,7 +3,7 @@
                 <div class="container">
                     <div class="row align-items-center flex-row-reverse">
                         <div class="col-lg-12 col-sm-12 mt-3 mt-lg-0 text-center">
-                        &copy;ChemCaliba <script>document.write(new Date().getFullYear())</script>, Designed & Developed By <a href="#"  class="btn btn-link box-shadow-0 px-0">Butterfly Technologies</a>
+                        &copy;MouryaEdu <script>document.write(new Date().getFullYear())</script>, Designed & Developed By <a href="#"  class="btn btn-link box-shadow-0 px-0">Zynovvatech</a>
                         </div>
                     </div>
                 </div>

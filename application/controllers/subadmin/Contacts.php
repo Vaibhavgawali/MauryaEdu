@@ -6,11 +6,7 @@ class Contacts extends Front_Controller
     public function __construct()
     {
         parent::__construct();
-
-        // $this->load->model('Common_Model');
-        // $this->load->model('Common/Course_Category_Model');
         $this->load->helper('common_helper');
-
         $this->load->model('Common/Contacts_Model');
 
     }
@@ -18,7 +14,7 @@ class Contacts extends Front_Controller
     public function index(){
         checkBranchAdminLoginSession();
 
-        addJs(array("admin/contacts.js",));
+        addJs(array("subadmin/contacts.js",));
         
         $login_detail = $this->session->userdata('login_detail');
         $this->data['login_detail'] = $login_detail;
@@ -57,7 +53,7 @@ class Contacts extends Front_Controller
         $order_dir = $order[0]['dir'];  /*Order by asc and desc*/
         /**/
 
-        $where = " 1=1 ";
+        $where = " 1=1 AND contacts.branch_id IN (" . $login_detail['branch_id'] . ")";
 
         /*Saerch common search*/
         if (!empty($searchTerm)) {
@@ -114,7 +110,8 @@ class Contacts extends Front_Controller
         checkBranchAdminLoginSession();
 
         $login_detail = $this->session->userdata('login_detail');
-        $userinfo_id = $login_detail['userinfo_id'];
+        $admin_id = $login_detail['admin_id'];
+        $branch_id = $login_detail['branch_id'];
 
         $status = true;
         $message = "Contact deleted successfully";

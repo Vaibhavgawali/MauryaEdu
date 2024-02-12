@@ -35,6 +35,7 @@ $(document).ready(function () {
       { data: "fullname" },
       { data: "email" },
       { data: "phone" },
+      { data: "branch_name" },
       { data: "created_at" },
       { data: "action" },
     ],
