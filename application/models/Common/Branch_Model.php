@@ -8,35 +8,34 @@ class Branch_Model extends CI_Model {
     
     //--- [START]  - course category details
 
-    /*  Get course category Info using status  */
+    /*  Get branch Info using status  */
     function getAllBranchDetailsByStatus($branch_status){
         $result = $this->db->query("SELECT * FROM branch_master WHERE branch_status = '".$branch_status."'")->result_array();
 
         return $result;
     }
 
-    /*  Get course category Info from name  */
+    /*  Get branchy Info from name  */
     function getBranchDetailsByName($branch_name){
         $result = $this->db->query("SELECT * FROM branch_master WHERE LOWER(branch_name) = '".strtolower($branch_name)."'")->row_array();
 
         return $result;
     }
 
-    /*  Get course category Info from ID  */
+    /*  Get branch Info from ID  */
     function getBranchDetailsById($branch_id){
         $result = $this->db->query("SELECT * FROM branch_master WHERE branch_id = '".$branch_id."'")->row_array();
 
         return $result;
     }
 
-    /*  Get course category Info from multiple ID  */
+    /*  Get branch Info from multiple ID  */
     function getBranchDetailsByMultipleId($branch_id){
         $result = $this->db->query("SELECT * FROM branch_master WHERE branch_id IN($branch_id)")->result_array();
-
         return $result;
     }
 
-    // count all course category from list
+    // count branch from list
     function countAllBranchList($where){
         // print_r($where);
         $sql = "SELECT COUNT(branch_id) AS total FROM branch_master AS sm WHERE $where";
@@ -44,7 +43,7 @@ class Branch_Model extends CI_Model {
         return $result->row();
     }
 
-    // GET LIST OF ALL course category from list
+    // GET LIST OF ALL branch from list
     function listBranchQuery($where, $order_by, $start, $length, $order_dir){
         $sql = "SELECT * 
             FROM branch_master As sm
@@ -61,7 +60,7 @@ class Branch_Model extends CI_Model {
         return $array;
     }
 
-    /*  Get course category Info from name with other id  */
+    /*  Get branch Info from name with other id  */
     function getBranchDetailsByNameWithOtherId($branch_name, $branch_id){
         $result = $this->db->query("SELECT * FROM branch_master WHERE LOWER(branch_name) = '".strtolower($branch_name)."' AND branch_id != ".$branch_id)->row_array();
 

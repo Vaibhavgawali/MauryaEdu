@@ -10,6 +10,7 @@ class Register extends Front_Controller
         $this->load->model('Common_Model');
         $this->load->model('Common/Student_Details_Model');
         $this->load->model('Student/Register_Model');
+        $this->load->model('Common/Branch_Model');
         $this->load->helper('common_helper');
         $this->load->helper('sms_helper');
     }
@@ -17,6 +18,10 @@ class Register extends Front_Controller
     public function index()
     {
         $login_detail = $this->session->userdata('login_detail_student');
+
+        $branches = $this->Branch_Model->getAllBranchDetailsByStatus(1);
+        $branches = array_slice($branches, 1);
+        $this->data['branches'] = $branches;
 
         if(isset($login_detail) && $login_detail['is_logged_in_student'])
         {
@@ -40,6 +45,7 @@ class Register extends Front_Controller
         $full_name = filter_smart($post_data['full_name']);
         $emailid = filter_smart($post_data['emailid']);
         $contact = filter_smart($post_data['contact']);
+        $branch = filter_smart($post_data['branch']);
 
         $get_Student_Details = $this->Student_Details_Model->getStudentDetailsByEmail($emailid);
 
@@ -58,6 +64,7 @@ class Register extends Front_Controller
                 "full_name"         => $full_name,
                 "emailid"           => $emailid,
                 "contact"           => $contact,
+                "branch_id"         => $branch,
                 "password"          => $password,
                 "terms_and_policy"  => '1',
                 "status"            => '2',
