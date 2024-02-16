@@ -57,6 +57,16 @@ $route['default_controller'] = 'course/Course/courses_list';
 $route['admin'] = 'admin/Login';
 $route['admin/login'] = 'admin/Login';
 $route['admin/login-process'] = 'admin/Login/LoginProcess';
+
+$route['admin/my-profile'] = 'admin/MyProfile';
+$route['admin/update-profile-pic'] = 'admin/MyProfile/UpdateProfilePicture';
+$route['admin/update-contact-details'] = 'admin/MyProfile/UpdateProfileContactDetails';
+$route['admin/change-password'] = 'admin/MyProfile/ChangePassword';
+$route['admin/change-password-process'] = 'admin/MyProfile/ChangePasswordProcess';
+
+$route['admin/forgot-password'] = 'admin/Login/ForgotPassword';
+$route['admin/forgot-password-process'] = 'admin/Login/ForgotPasswordProcess';
+
 $route['admin/dashboard'] = 'admin/Dashboard';
 
 //--- Student list
@@ -235,6 +245,16 @@ $route['courses-list'] = 'course/Course/courses_list';
 $route['course/get-course-list'] = 'course/Course/courses_listAjax';
 //---[END] -------   Course List without student login
 
+//---[START] -------   certificates
+$route['student/certificates'] = 'student/Certificates';
+$route['student/certificates-list-ajax'] = 'student/Certificates/CertificatesListAjax';
+//---[END] -------   certificates
+
+//---[START] -------   id card
+$route['student/id-cards'] = 'student/IdCard';
+$route['student/id-card-list-ajax'] = 'student/IdCard/IdCardListAjax';
+//---[END] -------  id card
+
 
 //---[START] -------   Cart
 $route['student/add-to-cart'] = 'student/Cart/add_to_cart';
@@ -323,6 +343,16 @@ $route['api/app_payment_response'] = 'api/Api/app_payment_response' ;
 $route['subadmin'] = 'subadmin/Login';
 $route['subadmin/login'] = 'subadmin/Login';
 $route['subadmin/login-process'] = 'subadmin/Login/LoginProcess';
+
+$route['subadmin/my-profile'] = 'subadmin/MyProfile';
+$route['subadmin/update-profile-pic'] = 'subadmin/MyProfile/UpdateProfilePicture';
+$route['subadmin/update-contact-details'] = 'subadmin/MyProfile/UpdateProfileContactDetails';
+$route['subadmin/change-password'] = 'subadmin/MyProfile/ChangePassword';
+$route['subadmin/change-password-process'] = 'subadmin/MyProfile/ChangePasswordProcess';
+
+$route['subadmin/forgot-password'] = 'subadmin/Login/ForgotPassword';
+$route['subadmin/forgot-password-process'] = 'subadmin/Login/ForgotPasswordProcess';
+
 $route['subadmin/dashboard'] = 'subadmin/Dashboard';
 
 $route['verifyBranchAdminEmailAddress'] = 'student/BranchAdmin/verifyBranchAdminEmailAddress';

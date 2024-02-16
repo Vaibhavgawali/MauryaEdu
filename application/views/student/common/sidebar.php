@@ -19,6 +19,12 @@
             <!-- <a class="side-menu__item" href="https://play.google.com/store/apps/details?id=com.rahuldhanawade.chemcaliba" ><i class="side-menu__icon fa fa-crosshairs"></i><span class="side-menu__label">Enrolled Courses </span></a> -->
         </li>
         <li>
+            <a class="side-menu__item" href="<?php echo base_url('student/certificates'); ?>"><i class="side-menu__icon fa fa-star-half-o"></i><span class="side-menu__label">Certificates</span></a>
+        </li>
+        <li>
+            <a class="side-menu__item" href="<?php echo base_url('student/id-cards'); ?>"><i class="side-menu__icon fa fa-star-half-o"></i><span class="side-menu__label">Id Cards</span></a>
+        </li>
+        <li>
             <!-- <a class="side-menu__item" href="<?php echo base_url('student/test-results'); ?>"><i class="side-menu__icon fa fa-star-half-o"></i><span class="side-menu__label">Test Results</span></a> -->
         </li>
         <li>

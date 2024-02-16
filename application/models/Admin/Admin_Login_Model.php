@@ -8,9 +8,10 @@ class Admin_Login_Model extends CI_Model {
 
     /*  check email id exists or not  */ 
     function checkEmailIdExistsOrNot($emailid){
-        $result = $this->db->query("SELECT emailid FROM userinfo WHERE emailid = '" . $emailid ."'")->row_array();
+        $result = $this->db->query("SELECT * FROM userinfo WHERE emailid = '" . $emailid ."'")->row_array();
 
-        return @$result['emailid'];
+        // return @$result['emailid'];
+        return $result;
     }
 
     /*  check user login  */ 
@@ -35,6 +36,19 @@ class Admin_Login_Model extends CI_Model {
         $this->session->set_userdata($session_data);
     }
 
+    /*  Get branch Info from ID  */
+    function getAdminDetailsById($userinfo_id){
+        $result = $this->db->query("SELECT * FROM userinfo WHERE userinfo_id = '".$userinfo_id."'")->row_array();
+
+        return $result;
+    }
+
+
+    /*  Get Admin Info from emailid & user id  */
+    function getAdminInfoFromEmailWithOtherAdminId($emailid, $userinfo_id){
+        $result = $this->db->query("SELECT * FROM userinfo WHERE emailid = '".$emailid."' AND userinfo_id != $userinfo_id")->row_array();
+        return $result;
+    } 
 }
 
 ?>

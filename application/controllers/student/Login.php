@@ -43,6 +43,7 @@ class Login extends Front_Controller
         {
             $full_name = $student_info['full_name'];
             $student_id = $student_info['student_id'];
+            $branch_id = $student_info['branch_id'];
             $status = $student_info['status'];
             
             if($status == '1')

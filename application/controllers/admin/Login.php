@@ -47,7 +47,7 @@ class Login extends Front_Controller
 
             }
             else
-            if($checkLogin['status']=='2'){
+            if($checkLogin['status']=='3'){
 
                 $this->data['result']['status'] = false;
                 $this->data['result']['message'] = "<b>ERROR! </b>Your account is inactive.<br> Please contact <b style='color:#f6a002;'>".COMPANY_EMAIL."</b>";
@@ -55,7 +55,7 @@ class Login extends Front_Controller
 
             }
             else
-            if($checkLogin['status']=='3'){
+            if($checkLogin['status']=='2'){
 
                 $this->data['result']['status'] = true;
                 $this->data['result']['message'] = "Successfully Login";
@@ -91,5 +91,95 @@ class Login extends Front_Controller
         //print_r_custom($this->session->userdata,1);
 
         redirect(base_url().'admin/login');
+    }
+
+    public function ForgotPassword()
+    {
+        $login_detail = $this->session->userdata('login_detail');
+        if(!empty($login_detail) && $login_detail['is_logged_in']=='1' && $login_detail['userinfo_id'] > 0)
+        {
+            redirect(base_url() . 'admin/dashboard');
+            exit;
+        }
+        else
+        {
+            $this->load->view('admin/forgot-password', $this->data);
+        }
+    }
+
+    public function ForgotPasswordProcess()
+    {
+        $post_data = $this->input->post();
+
+        //extract($post_data);
+        $emailid = filter_smart($post_data['emailid']);
+
+        $admin_info = $this->Admin_Login_Model->checkEmailIdExistsOrNot($emailid);
+        if(!empty($admin_info))
+        {
+            $full_name = $admin_info['full_name'];
+            $userinfo_id = $admin_info['userinfo_id'];
+            $status = $admin_info['status'];
+            
+            if($status == '1')
+            {
+                $this->data['result']['status'] = false;
+                $this->data['result']['message'] = "<b>VERIFY! </b>Email Verification Pending. <br><br>You can write query to <b style='color:#f6a002;'>".COMPANY_EMAIL."</b>";
+            }
+            else
+            if($status == '3')
+            {
+                $this->data['result']['status'] = false;
+                $this->data['result']['message'] = "<b>ERROR! </b>Your account is inactive.<br> Please contact <b style='color:#f6a002;'>".COMPANY_EMAIL."</b>";
+            }
+            else{
+                $temp_password = GeneratePassword();
+                $PASSWORD = hash('sha512',$temp_password);
+
+                $temp_password_created_on = date("Y-m-d H:i:s",strtotime ( '+1 day' , strtotime(date('Y-m-d H:i:s')) )) ;
+                
+                $update_array = array(
+                    'temp_password' => $PASSWORD,
+                    'temp_password_created_on' => $temp_password_created_on,
+                    'updatedOn' => date("Y-m-d H:i:s"),
+                    'ip_address' => $_SERVER['REMOTE_ADDR']
+                );
+
+                $where = array('userinfo_id' => $userinfo_id, 'emailid' => $emailid);
+
+                $update_status = $this->Common_Model->updateTable('userinfo', $update_array, $where);
+
+                if($update_status){
+                    $message = "Dear ".$full_name.",<br><br>";
+                    $message .= "<hr><br>";
+                    $message .= "Please find below temporary password generated to login your superadmin account.<br><br>";
+                    $message .= "This password is valid for 24 hours.<br>";
+                    $message .= "<br><hr><br><br>";
+                    $message .= "Please use below details to login to your account.<br><br><br>";
+                    $message .= "<b>Email ID: </b>".$emailid." <br>";
+                    $message .= "<b>Temporary Password : </b>".$temp_password." <br>";
+                    $message .= "<b>Password Valid Till: </b>".date('d-m-Y H:i:s', strtotime($temp_password_created_on))." <br><br><br>";
+                    $message .= "<span style='background-color:red; color:yellow;'><b>Please change your password once you login to your superadmin account </b></span> <br><br><br>";
+                    $message .= "<b>Note:</b> This is a system generated email. Please do not reply to this email.<br><br>";
+
+                    if(IS_LIVE){
+                        sendEmail($emailid, 'Forgot Password - '.COMPANY_NAME, $message, "", "", '', '','');
+                    }
+                }
+
+                $this->data['result']['status'] = true;
+                $this->data['result']['message'] = "Temporary paasword generated successfully & sent to your email id.<br>Now you can login to your account using the temporary password sent on your email id.<br><span style='background-color:red; color:yellow;'><b>Please change your password once you login to your superadmin account </b></span> ";
+            }
+            
+        }
+        else
+        {
+            $this->data['result']['status'] = false;
+            $this->data['result']['message'] = "<b>INVALID PARAMETER! </b>Please try again";
+        }
+
+        echo json_encode($this->data['result']);
+        exit;
+        
     }
 }

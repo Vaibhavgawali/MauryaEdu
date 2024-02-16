@@ -5,25 +5,34 @@ class Course_Model extends CI_Model {
         parent::__construct();
     }
 
-    public function loadCourses($pagination){
+    public function loadCourses($pagination,$additional_where = NULL){
         $sql = "SELECT course_master.*, course_category_master.* 
-            FROM course_master 
-            LEFT JOIN course_category_master ON course_master.course_category_id = course_category_master.course_category_id 
-            WHERE course_master.course_status = '1' 
-            ORDER BY course_master.created_date DESC 
-            LIMIT ".$pagination['offset'].",".$pagination['limit'];
+        FROM course_master 
+        LEFT JOIN course_category_master ON course_master.course_category_id = course_category_master.course_category_id 
+        WHERE course_master.course_status = '1'";
+
+        if (!empty($additional_where)) {
+            $sql .= $additional_where;
+        }
+
+        $sql .= " ORDER BY course_master.created_date DESC 
+                LIMIT {$pagination['offset']}, {$pagination['limit']}";
 
         $result = $this->db->query($sql)->result_array();
-
         return $result;
     }
 
-    public function totalCourses(){
-        $result = $this->db->query("SELECT COUNT(*) as total FROM course_master WHERE course_status = '1' ")->row_array();
+    public function totalCourses($additional_where = NULL){
+        $where='';
+        if (!empty($additional_where)) {
+            $where .= $additional_where;
+        }
+        
+        $sql = "SELECT COUNT(*) as total FROM course_master WHERE course_status = '1' $where";
+        $result = $this->db->query($sql)->row_array();
 
         return $result;
     }
-
 
     public function getCourseDetailsById($course_id){
         $result = $this->db->query("SELECT cm.*, ccm.course_category_name, ccm.course_category_info 
@@ -66,7 +75,7 @@ class Course_Model extends CI_Model {
                             WHERE em.student_id = '".$student_id."' AND em.course_master_id = '".$course_id."'")->row_array();
 
         return $result;
-    }
+    }   
 
     public function getCourseVideoDetails($course_master_id){
         $result = $this->db->query("SELECT * 

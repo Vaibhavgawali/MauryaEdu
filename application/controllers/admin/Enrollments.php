@@ -539,7 +539,7 @@ class Enrollments extends Front_Controller
         $certificate_master_id = filter_smart($post_data['certificate_master_id']);
         $student_id = filter_smart($post_data['student_id']);
         $certificate_title = filter_smart($post_data['certificate_title']);
-        $id_card_status = filter_smart($post_data['id_card_status']);
+        $certificate_status = filter_smart($post_data['certificate_status']);
 
         $get_Certificate_Details = $this->Certificate_Model->getCertificateDetailsById($certificate_master_id);
         // print_r_custom($get_Certificate_Details,1);

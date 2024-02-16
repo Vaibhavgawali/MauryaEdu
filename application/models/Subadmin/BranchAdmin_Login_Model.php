@@ -8,9 +8,10 @@ class BranchAdmin_Login_Model extends CI_Model {
 
     /*  check email id exists or not  */ 
     function checkEmailIdExistsOrNot($emailid){
-        $result = $this->db->query("SELECT emailid FROM userinfo WHERE emailid = '" . $emailid ."'")->row_array();
+        $result = $this->db->query("SELECT * FROM branch_admin_master WHERE admin_emailid = '" . $emailid ."'")->row_array();
 
-        return @$result['emailid'];
+        // return @$result['emailid'];
+        return $result;
     }
 
     /*  check user login  */ 
