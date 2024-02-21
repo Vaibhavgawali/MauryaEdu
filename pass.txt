@@ -95,3 +95,17 @@ installlment button
 -> update status of installment by installment id
 
 ================================================
+
+
+razor_payment_master_id
+
+student_id
+razor_payment_id
+order_id
+amount
+patyment_status
+payment_method
+payment_response
+created_date
+
+///////////////////////////////////////

@@ -104,10 +104,11 @@ class Student extends Front_Controller
 
             $reset_password_button = "<a href='javascript:void(0);' class='btn btn-info btn-sm reset_password_student' id='".$student_id."'><i class='fa fa-lock'></i> Reset Password</a>";
 
+            $enroll_button = "<a href='".base_url()."subadmin/enrollment-list/".$student_id."' class='btn btn-info btn-sm enroll_student' id='".$student_id."'><i class='fa fa-plus'></i> Enroll Now</a>";
             $delete_button = "<a href='javascript:void(0);' class='btn btn-danger btn-sm delete_student' id='".$student_id."'><i class='fa fa-trash'></i> Delete</a>";
 
             $action = "";
-            $action .= $edit_button."&nbsp;&nbsp;".$reset_password_button."&nbsp;&nbsp;".$delete_button;
+            $action .= $edit_button."&nbsp;&nbsp;".$reset_password_button."&nbsp;&nbsp;".$enroll_button."&nbsp;&nbsp;".$delete_button;
 
             if($main['status'] == '1' || $main['status'] == 1){
                 $resend_verfication_link_btn = "";

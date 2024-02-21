@@ -77,6 +77,11 @@ $route['admin/student-update-process'] = 'admin/Student/StudentUpdateProcess';
 $route['admin/reset-student-password'] = 'admin/Student/ResetStudentPassword';
 $route['admin/delete-student'] = 'admin/Student/DeleteStudent';
 
+//--- Offline enrollment
+$route['admin/get-course-details'] = 'admin/StudentEnroll/GetCourseDetails';
+$route['admin/enrollment-add-process'] = 'admin/StudentEnroll/StudentEnrollAddProcess';
+$route['admin/enrollment-list/(:any)'] = 'admin/StudentEnroll/AddStudentEnroll/$1';
+
 //--- Course Category list
 $route['admin/course-category-list'] = 'admin/CourseCategory';
 $route['admin/course-category-add-process'] = 'admin/CourseCategory/CourseCategoryAddProcess';
@@ -460,6 +465,11 @@ $route['subadmin/enrollment-list-ajax'] = 'subadmin/Enrollments/StudentListAjax'
 $route['subadmin/get-enrollment-student-details'] = 'subadmin/Enrollments/GetEnrollmentStudentsDetails';
 $route['subadmin/enrollment-student-update-process'] = 'subadmin/Enrollments/EnrollmentStudentUpdateProcess';
 $route['subadmin/student-enrollemnt-delete'] = 'subadmin/Enrollments/DeleteEnrollmentStudent';
+
+//--- Offline enrollment
+$route['subadmin/get-course-details'] = 'subadmin/StudentEnroll/GetCourseDetails';
+$route['subadmin/enrollment-add-process'] = 'subadmin/StudentEnroll/StudentEnrollAddProcess';
+$route['subadmin/enrollment-list/(:any)'] = 'subadmin/StudentEnroll/AddStudentEnroll/$1';
 
 //--- Certificates
 $route['subadmin/certificate-add-process'] = 'subadmin/Enrollments/AddStudentsCertificateDetails';
