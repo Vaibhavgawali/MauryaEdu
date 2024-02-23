@@ -1,44 +1,73 @@
-<!-- Sidebar menu-->
-<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
-<aside class="app-sidebar">
-    <ul class="side-menu">
-        <li>
-            <a class="side-menu__item" href="<?php echo base_url('student/dashboard'); ?>"><i class="side-menu__icon fa fa-desktop"></i><span class="side-menu__label">Dashboard</span></a>
-        </li>
-        <!-- <li>
-            <a class="side-menu__item" href="<?php echo base_url('student/my-profile'); ?>"><i class="side-menu__icon fa fa-user"></i><span class="side-menu__label">My Profile</span></a>
-        </li>
-        <li>
-            <a class="side-menu__item" href="<?php echo base_url('student/change-password'); ?>"><i class="side-menu__icon fa fa-lock"></i><span class="side-menu__label">Change Password</span></a>
-        </li> -->
-        <li>
-            <a class="side-menu__item" href="<?php echo base_url('student/courses-list'); ?>"><i class="side-menu__icon fa fa-book"></i><span class="side-menu__label">Our Courses</span></a>
-        </li>
-        <li>
-            <a class="side-menu__item" href="<?php echo base_url('student/enrolled-courses-list'); ?>"><i class="side-menu__icon fa fa-crosshairs"></i><span class="side-menu__label">Enrolled Courses </span></a>
-            <!-- <a class="side-menu__item" href="https://play.google.com/store/apps/details?id=com.rahuldhanawade.chemcaliba" ><i class="side-menu__icon fa fa-crosshairs"></i><span class="side-menu__label">Enrolled Courses </span></a> -->
-        </li>
-        <li>
-            <!-- <a class="side-menu__item" href="<?php echo base_url('student/test-results'); ?>"><i class="side-menu__icon fa fa-star-half-o"></i><span class="side-menu__label">Test Results</span></a> -->
-        </li>
-        <li>
-            <!-- <a class="side-menu__item" href="<?php echo base_url('student/test-schedules'); ?>"><i class="side-menu__icon fa fa-calendar"></i><span class="side-menu__label">Test Schedule</span></a> -->
-        </li>
-        <li>
-            <!-- <a class="side-menu__item" href="<?php echo base_url('student/announcements'); ?>"><i class="side-menu__icon fa fa-bullhorn"></i><span class="side-menu__label">Announcements</span></a> -->
-        </li>
-        <li>
-            <!-- <a class="side-menu__item" href="<?php echo base_url('student/pt-meetings'); ?>"><i class="side-menu__icon fa fa-slideshare"></i><span class="side-menu__label">Parent - Teacher Meeting</span></a> -->
-        </li>
-        <li>
-            <!-- <a class="side-menu__item" href="<?php echo base_url('student/holiday-information'); ?>"><i class="side-menu__icon fa fa-calendar"></i><span class="side-menu__label">Holiday Information</span></a> -->
-        </li>
-        <li>
-            <a class="side-menu__item" href="<?php echo base_url('student/logout'); ?>"><i class="side-menu__icon fa fa-power-off"></i><span class="side-menu__label">Logout</span></a>
-        </li>
-    </ul>
-</aside>
-
-<div class="app-content  my-3 my-md-5">
-    <div class="side-app">
-        <div id="loader-spin"></div>
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <?php
+  if (!empty($studentInfo['profile_pic'])) {
+    $img_path = base_url() . 'uploads/student/' . $studentInfo['student_id'] . '/profile-pic/' . $studentInfo['profile_pic'];
+  } else {
+    $img_path = base_url() . 'assets/images/profile-photo-not-available.png';
+  }
+  ?>
+  <ul class="nav">
+    <li class="nav-item nav-profile">
+      <a href="#" class="nav-link">
+        <div class="nav-profile-image">
+          <img src="<?php echo $img_path; ?>" alt="<?php echo $studentInfo['full_name']; ?>">
+          <span class="login-status online"></span>
+          <!--change to offline or busy as needed-->
+        </div>
+        <div class="nav-profile-text d-flex flex-column">
+          <span class="font-weight-bold mb-2"><?php echo $studentInfo['full_name']; ?></span>
+          <!-- <span class="text-secondary text-small">Project Manager</span> -->
+        </div>
+        <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="<?php echo base_url('student/dashboard');?>">
+        <span class="menu-title">Dashboard</span>
+        <i class="mdi mdi-home menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo base_url('student/courses-list'); ?>">
+        <span class="menu-title">Our Courses</span>
+        <i class="mdi mdi mdi-library-books menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo base_url('student/enrolled-courses-list'); ?>">
+        <span class="menu-title">Enrollments</span>
+        <i class="mdi mdi mdi-table-edit menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo base_url('student/test-results'); ?>">
+        <span class="menu-title">Test Results</span>
+        <i class="mdi  mdi-star-half menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo base_url('student/test-schedules'); ?>">
+        <span class="menu-title">Test Schedule</span>
+        <i class="mdi mdi-timetable menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo base_url('student/announcements'); ?>">
+        <span class="menu-title">Announcements</span>
+        <i class="mdi  mdi-bullhorn menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo base_url('student/pt-meetings'); ?>">
+        <span class="menu-title">Parent - Teacher meeting</span>
+        <i class="mdi mdi-human-male-female menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo base_url('student/holiday-information'); ?>">
+        <span class="menu-title">Holiday information</span>
+        <i class="mdi mdi mdi-calendar menu-icon"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
