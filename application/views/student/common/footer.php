@@ -1,21 +1,26 @@
-<!--footer-->
-            <footer class="footer">
-                <div class="container">
-                    <div class="row align-items-center flex-row-reverse">
-                        <div class="col-lg-12 col-sm-12 mt-3 mt-lg-0 text-center">
-                        &copy;ChemCaliba <script>document.write(new Date().getFullYear())</script>, Designed & Developed By <a href="#"  class="btn btn-link box-shadow-0 px-0">Butterfly Technologies</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- End Footer-->
+
+        <!-- main-panel ends -->
         </div>
+      <!-- page-body-wrapper ends -->
     </div>
 </div>
-
-<!-- Back to top -->
-<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
-
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="<?php echo base_url('assets/js/vendors/vendor.bundle.base.js');?>"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="<?php echo base_url('assets/js/vendors/chart.js/Chart.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/jquery.cookie.js');?>" type="text/javascript"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="<?php echo base_url('assets/js/off-canvas.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/hoverable-collapse.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/misc.js');?>"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="<?php echo base_url('assets/js/dashboard.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/todolist.js');?>"></script>
+    
 <!-- Dashboard js -->
 <script src="<?php echo base_url('assets/js/vendors/jquery-3.2.1.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/vendors/bootstrap.bundle.min.js'); ?>"></script>
@@ -23,7 +28,21 @@
 <script src="<?php echo base_url('assets/js/vendors/selectize.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/vendors/jquery.tablesorter.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/vendors/circle-progress.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/plugins/rating/jquery.rating-stars.js'); ?>"></script><!-- third party js -->
+<script src="<?php echo base_url('assets/plugins/rating/jquery.rating-stars.js'); ?>"></script>
+
+<!--Select2 js -->
+<script src="<?php echo base_url('assets/plugins/select2/select2.full.min.js'); ?>"></script>
+
+<!-- Timepicker js -->
+<script src="<?php echo base_url('assets/plugins/time-picker/jquery.timepicker.js'); ?>"></script>
+<script src="<?php echo base_url('assets/plugins/time-picker/toggles.min.js'); ?>"></script>
+
+<!-- Datepicker js -->
+<script src="<?php echo base_url('assets/plugins/date-picker/spectrum.js'); ?>"></script>
+<script src="<?php echo base_url('assets/plugins/date-picker/jquery-ui.js'); ?>"></script>
+<script src="<?php echo base_url('assets/plugins/input-mask/jquery.maskedinput.js'); ?>"></script>
+
+<!-- third party js -->
 <script src="<?php echo base_url('assets/libs/datatables.net/js/jquery.dataTables.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js'); ?>"></script>
@@ -38,8 +57,6 @@
 <script src="<?php echo base_url('assets/libs/pdfmake/build/pdfmake.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/libs/pdfmake/build/vfs_fonts.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/sweetalert.js'); ?>"></script>
-<!-- confirm init js-->
-<script src="<?php echo base_url('assets/js/jquery-confirm.min.js'); ?>"></script>
 
 <!-- Tost-->
 <script src="<?php echo base_url('assets/libs/jquery-toast-plugin/jquery.toast.min.js'); ?>"></script>
@@ -55,6 +72,9 @@
 
 <!-- Custom Js-->
 <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
+
+<!-- confirm init js-->
+<script src="<?php echo base_url('assets/js/jquery-confirm.min.js'); ?>"></script>
 
 <script>
     function generateNotification(type, message) {
@@ -86,7 +106,6 @@
 
 </script>
 <?php loadJs($application_version); ?>
-
-</body>
-
+    <!-- End custom js for this page -->
+  </body>
 </html>

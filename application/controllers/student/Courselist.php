@@ -164,8 +164,8 @@ class Courselist extends Front_Controller
     public function enrolled_courses_list(){
         checkStudentLoginSession();
         
-        header("Location: ".APP_LINK);
-        die();
+        // header("Location: ".APP_LINK);
+        // die();
 
         addJs(array("course/enrolled-course-list.js"));
         
@@ -263,8 +263,8 @@ class Courselist extends Front_Controller
     {
         checkStudentLoginSession();
         
-        header("Location: ".APP_LINK);
-        die();
+        // header("Location: ".APP_LINK);
+        // die();
 
         addJs(array("course/enrolled-course-list.js"));
                 

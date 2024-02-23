@@ -142,10 +142,10 @@ $(document).ready(function () {
               }
 
               courseData +=
-                `<div class="col-lg-3 col-md-offset-3 hovernow">
+                `<div class="col-lg-4 col-md-offset-3 hovernow">
 	            								<a href = "` +
                 course_details_url +
-                `">
+                `" class="text-decoration-none text-black">
 			                                        <div class="card item-card">
 			                                            <div class="card-body pb-0">
 			                                                <div class="text-center">` +
@@ -198,7 +198,8 @@ $(document).ready(function () {
 																	<span class="type--strikethrough"><i class="fa fa-rupee"></i> ` +
                 res.courseData[i].course_actual_price +
                 `</span>
-																	<span><i class="fa fa-rupee"></i> ` +
+																	<span><i class="fa fa-rupee"></i> ` 
+                                  +
                 res.courseData[i].course_sell_price +
                 `</span>
 																</div>                                     
