@@ -1,23 +1,14 @@
-<?php 
-    $page = $this->uri->segment(1);
-    //print_r_custom($login_detail,1);
-?>
 
-<div class="page-header">
-    <h4 class="page-title">Dashboard</h4>
-    <ol class="breadcrumb">
-        <?php 
-            if($live_video_lecture_link != '')
-            {
-                echo '<li class="breadcrumb-item active" aria-current="page"><a href = "'.$live_video_lecture_link.'" target = "_blank"><i class="fa fa-video-camera"></i> Live Video Lecture</a></li>';
-            }
-        ?>
-        
-    </ol>
-
-</div>
-
-<div class="row row-cards">
+div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title">
+        <span class="page-title-icon bg-gradient-primary text-white me-2">
+          <i class="mdi mdi-home"></i>
+        </span>Dashboard
+      </h3>
+    </div>
+    <div class="row row-cards">
 
     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
         <a href="<?php echo base_url('student/live-lecture'); ?>" >
@@ -116,23 +107,19 @@
         </a>    
     </div>
 
-    <!-- <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-        <a href="<?php //echo base_url('student/practice-assignments'); ?>" >
-            <div class="card card-counter bg-gradient-danger shadow-danger">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="mt-4 mb-0 text-white">
-                                <p class="text-white mt-1"> </p>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <i class="fa fa-file-text-o mt-3 mb-0"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>    
-    </div> -->
+  
 
-</div>    
+</div>  
+
+  </div>
+  <!-- content-wrapper ends -->
+  <!-- partial:partials/_footer.html -->
+  <footer class="footer">
+        <div class="container-fluid d-flex justify-content-between">
+            <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © Maurya 2024 </span>
+            <span class="float-none float-sm-end mt-1 mt-sm-0 text-end">Designed & Developed By <a style="text-decoration: none;" href="https://www.zynovvatech.com/" target="_blank">Zynovvatech</a></span>
+        </div>
+    </footer>
+  <!-- partial -->
+</div>
+  

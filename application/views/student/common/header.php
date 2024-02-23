@@ -1,90 +1,148 @@
-<div id="global-loader"></div>
-<div class="page">
-	<div class="page-main">
-		<div class="app-header header py-1 d-flex">
-			<div class="container-fluid">
-				<div class="d-flex">
-					<a class="header-brand" href="<?php echo base_url('student/dashboard'); ?>">
-						<img src="<?php echo base_url('assets/images/logo.png'); ?>" class="header-brand-img"
-							alt="Spain logo">
-					</a>
-					<a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
-
-					<div class="d-flex order-lg-2 ml-auto">
-						<?php
-						if (!empty($studentInfo['profile_pic'])) {
-							$img_path = base_url() . 'uploads/student/' . $studentInfo['student_id'] . '/profile-pic/' . $studentInfo['profile_pic'];
-						} else {
-							$img_path = base_url() . 'assets/images/profile-photo-not-available.png';
-						}
-						?>
-						<div class="dropdown d-md-flex">
-							<a class="nav-link icon" data-toggle="dropdown">
-								<i class="fa fa-shopping-cart"></i>
-								<?php
-								$cart_details = $this->session->userdata('student_cart_details');
-
-								if ($cart_details) {
-									echo '<span id="cart_count" class=" nav-unread badge badge-success  badge-pill">' . count($cart_details) . '</span>';
-								} else {
-									echo '<span id="cart_count" class=" nav-unread badge badge-success  badge-pill">0</span>';
-								}
-								?>
-							</a>
-							<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-								<?php
-								$cart_details = $this->session->userdata('student_cart_details');
-
-								if ($cart_details) {
-									?>
-									<a href="<?php echo base_url('student/view-cart'); ?>" class="dropdown-item text-center"
-										id="cart_item_msg">
-										<?php echo count($cart_details) . " product(s) added in the cart"; ?>
-									</a>
-									<?php
-
-								} else {
-									?>
-									<a href="<?php echo base_url('student/view-cart'); ?>" class="dropdown-item text-center"
-										id="cart_item_msg">You have not added any product to cart.</a>
-									<?php
-								}
-								?>
-								<!-- <a href="<?php echo base_url('student/view-cart'); ?>" class="dropdown-item text-center" id = "cart_item_msg">You have not added any product to cart.</a>									 -->
-								<div class="dropdown-divider"></div>
-								<a href="<?php echo base_url('student/view-cart'); ?>"
-									class="dropdown-item text-center">View Cart</a>
-
-							</div>
-						</div>
-
-						<div class="dropdown">
-							<a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
-								<span class="avatar avatar-md brround"><img src="<?php echo $img_path; ?>"
-										alt="<?php echo $studentInfo['full_name']; ?>"
-										class="avatar avatar-md brround"></span>
-							</a>
-							<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow ">
-								<input type="hidden" id="logged_in_student_id"
-									value="<?= isset($studentInfo['student_id']) && $studentInfo['student_id'] != '' ? $studentInfo['student_id'] : '0'; ?>" />
-								<div class="text-center">
-									<?= $studentInfo['full_name'] ?>
-
-									<div class="dropdown-divider"></div>
-								</div>
-								<a class="dropdown-item" href="<?php echo base_url('student/my-profile') ?>">
-									<i class="dropdown-icon mdi mdi-account-outline "></i> Profile
-								</a>
-								<a href="<?php echo base_url('student/change-password') ?>" class="dropdown-item">
-									<i class="dropdown-icon mdi  mdi-lock"></i> Change Password
-								</a>
-								<a href="<?php echo base_url('student/logout') ?>" class="dropdown-item">
-									<i class="dropdown-icon mdi  mdi-logout-variant"></i> Sign out
-								</a>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
+<nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo" href="index.html"><img src="<?php echo base_url('assets/images/logo.png');?>" alt="logo" /></a>
+          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-stretch">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+          <div class="search-field d-none d-md-block">
+            <form class="d-flex align-items-center h-100" action="#">
+              <div class="input-group">
+                <div class="input-group-prepend bg-transparent">
+                  <i class="input-group-text border-0 mdi mdi-magnify"></i>
+                </div>
+                <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
+              </div>
+            </form>
+          </div>
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item nav-profile dropdown">
+              <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="nav-profile-img">
+                  <img src="<?php echo base_url('assets/images/faces/face1.jpg');?>" alt="image">
+                  <span class="availability-status online"></span>
+                </div>
+                <div class="nav-profile-text">
+                  <p class="mb-1 text-black">David Greymaax</p>
+                </div>
+              </a>
+              <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+              </div>
+            </li>
+            <li class="nav-item d-none d-lg-block full-screen-link">
+              <a class="nav-link">
+                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="mdi mdi-email-outline"></i>
+                <span class="count-symbol bg-warning"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                <h6 class="p-3 mb-0">Messages</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="<?php echo base_url('assets/images/faces/face4.jpg');?>" alt="image" class="profile-pic">
+                  </div>
+                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                    <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Mark send you a message</h6>
+                    <p class="text-gray mb-0"> 1 Minutes ago </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="<?php echo base_url('assets/images/faces/face2.jpg');?>" alt="image" class="profile-pic">
+                  </div>
+                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                    <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Cregh send you a message</h6>
+                    <p class="text-gray mb-0"> 15 Minutes ago </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="<?php echo base_url('assets/images/faces/face3.jpg');?>" alt="image" class="profile-pic">
+                  </div>
+                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                    <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Profile picture updated</h6>
+                    <p class="text-gray mb-0"> 18 Minutes ago </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <h6 class="p-3 mb-0 text-center">4 new messages</h6>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+                <i class="mdi mdi-bell-outline"></i>
+                <span class="count-symbol bg-danger"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                <h6 class="p-3 mb-0">Notifications</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-success">
+                      <i class="mdi mdi-calendar"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                    <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
+                    <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-warning">
+                      <i class="mdi mdi-settings"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                    <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
+                    <p class="text-gray ellipsis mb-0"> Update dashboard </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-info">
+                      <i class="mdi mdi-link-variant"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                    <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
+                    <p class="text-gray ellipsis mb-0"> New admin wow! </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <h6 class="p-3 mb-0 text-center">See all notifications</h6>
+              </div>
+            </li>
+            <li class="nav-item nav-logout d-none d-lg-block">
+              <a class="nav-link" href="#">
+                <i class="mdi mdi-power"></i>
+              </a>
+            </li>
+            <li class="nav-item nav-settings d-none d-lg-block">
+              <a class="nav-link" href="#">
+                <i class="mdi mdi-format-line-spacing"></i>
+              </a>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
+	  <div class="container-fluid page-body-wrapper">
