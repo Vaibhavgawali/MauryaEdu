@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /maurya/
+    RewriteBase /mauryaEdu/
     #Removes access to the system folder by users.
     #Additionally this will allow you to create a System.php controller,
     #previously this would not have been possible.
@@ -36,8 +36,7 @@
 <IfModule !mod_rewrite.c>
     # If we don't have mod_rewrite installed, all 404's
     # can be sent to index.php, and everything works as normal.
-    # Submitted by: ElliotHaughin
-
-    ErrorDocument 404 /index.php
+    # Submitted by: ElliotHaughing
+    ErrorDocument 404 /index.php 
 </IfModule> 
 
