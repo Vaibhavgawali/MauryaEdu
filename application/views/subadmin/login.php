@@ -16,7 +16,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('assets/images/favicon.png'); ?>" />
 
 		<!-- Title -->
-		<title>Sub Admin Login - Student Portal</title>
+		<title>Branch Admin Login - Student Portal</title>
 		<link rel="stylesheet" href="<?php echo base_url('assets/fonts/fonts/font-awesome.min.css'); ?>">
 
 		<!-- Font Family -->
@@ -61,7 +61,7 @@
 									<div class="card-group mb-0">
 										<div class="card p-4">
 											<div class="card-body">
-												<h1>Subadmin Login</h1>
+												<h1>Branch Admin Login</h1>
 												<p class="text-muted">Sign In to your account</p>
 												<div class="input-group mb-3">
 													<span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -81,7 +81,7 @@
 														<button type="button" class="btn btn-gradient-primary btn-block" id="btn_login_submit">Login</button>
 													</div>
 													<div class="col-12">
-														<a href="#" class="btn btn-link box-shadow-0 px-0">Forgot password?</a>
+														<a href="<?php echo base_url('subadmin/forgot-password'); ?>" class="btn btn-link box-shadow-0 px-0">Forgot password?</a>
 													</div>
 												</div>
 											</div>

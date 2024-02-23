@@ -32,6 +32,8 @@ class Courselist extends Front_Controller
 
     public function courses_listAjax()
     {
+        $login_detail = $this->session->userdata('student_login_detail');
+
         $requestData = $_REQUEST;
 
         $limit  = $requestData['limit'];
@@ -41,9 +43,10 @@ class Courselist extends Front_Controller
         // $courseData = array();
         $pagination = array('offset' => $offset, 'limit' => $limit );
 
-        $courses = $this->Course_Model->loadCourses($pagination);
+        $where = " AND course_master.branch_id IN (" . $login_detail['branch_id'] . ", 1)";
 
-        $login_detail = $this->session->userdata('student_login_detail');
+        $courses = $this->Course_Model->loadCourses($pagination,$where);
+
     
         for($i=0;$i<count($courses);$i++)
         {
@@ -77,10 +80,8 @@ class Courselist extends Front_Controller
             }
             // print_r_custom($check_if_already_bought,1);
         }
-            
-
-        $totalCourses =  $this->Course_Model->totalCourses();
-        // print_r($totalCourses);
+         
+        $totalCourses =  $this->Course_Model->totalCourses($where);
         $totalCourses = $totalCourses['total'];
 
         if($courses){
@@ -163,9 +164,6 @@ class Courselist extends Front_Controller
 
     public function enrolled_courses_list(){
         checkStudentLoginSession();
-        
-        header("Location: ".APP_LINK);
-        die();
 
         addJs(array("course/enrolled-course-list.js"));
         
@@ -262,9 +260,6 @@ class Courselist extends Front_Controller
     public function getEnrolledCourseDetails($course_id = '')
     {
         checkStudentLoginSession();
-        
-        header("Location: ".APP_LINK);
-        die();
 
         addJs(array("course/enrolled-course-list.js"));
                 
@@ -347,7 +342,7 @@ class Courselist extends Front_Controller
     //     checkStudentLoginSession();
         
     //     $file = 'http://localhost/student-portal/uploads/chapter/5/chapter-documents/4/c97986e2267af38ab552b447515a137e.pdf';
-    //     $filename = 'http://localhost/student-portal/uploads/chapter/5/chapter-documents/4/c97986e2267af38ab552b447515a137e.pdf';
+    //     $filename = 'http://localhost/student-portal/uploads/chapter/5/chapter-documen   ts/4/c97986e2267af38ab552b447515a137e.pdf';
           
     //     // Header content type
     //     header('Content-type: application/pdf');

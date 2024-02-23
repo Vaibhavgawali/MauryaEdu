@@ -18,6 +18,7 @@ class Contacts_Model extends CI_Model {
     function countAllContactsList($where){
         $sql = "SELECT COUNT(contacts.id) AS total 
             FROM contacts 
+            LEFT JOIN branch_master ON branch_master.branch_id = contacts.branch_id 
             WHERE $where";
             
         $result = $this->db->query($sql);
@@ -26,8 +27,9 @@ class Contacts_Model extends CI_Model {
 
     // GET LIST OF ALL Contacts from list
     function listContactsQuery($where, $order_by, $start, $length, $order_dir){
-        $sql = "SELECT contacts.* 
+        $sql = "SELECT contacts.*, branch_master.branch_name
             FROM contacts 
+            LEFT JOIN branch_master ON branch_master.branch_id = contacts.branch_id 
             WHERE $where 
             ORDER BY $order_by $order_dir LIMIT $start, $length";
         

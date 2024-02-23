@@ -10,6 +10,8 @@ class Enrollments extends Front_Controller
         $this->load->model('Common_Model');
         $this->load->model('Admin/Student_List_Model');
         $this->load->model('Common/Enrollment_Model');
+        $this->load->model('Common/Certificate_Model');
+        $this->load->model('Common/Id_Card_Model');
         $this->load->helper('common_helper');
     }
 
@@ -134,17 +136,37 @@ class Enrollments extends Front_Controller
 
             // $nestedData['status'] = $status_display;
 
-            
 
             $edit_button = "<a href='javascript:void(0);' class='btn btn-info btn-sm edit_student_status' id='".$enrollment_id."'><i class='fa fa-eye'></i> View</a>";
 
             $delete_button = "<a href='javascript:void(0);' class='btn btn-danger btn-sm delete_student_enrollment' id='".$enrollment_id."'><i class='fa fa-trash'></i> Delete</a>";
 
-            $action = "";
-            $action .= $edit_button."&nbsp;&nbsp;&nbsp;".$delete_button;
-            
-            $nestedData['action'] = $action;
+            $add_certificate_button = "<a href='javascript:void(0);' class='btn btn-info btn-sm add_certificate' id='".$enrollment_id."'><i class='fa fa-plus'></i> Add Certificate</a>";
+           
+            $add_id_card_button = "<a href='javascript:void(0);' class='btn btn-info btn-sm add_id_card' id='".$enrollment_id."'><i class='fa fa-plus'></i> Add Id Card</a>";
 
+            $action = "";
+            $action .= $edit_button . "&nbsp;&nbsp;&nbsp;" . $delete_button;
+            
+            $student_id = $main['student_id'];
+
+            $certificate_master_id = $main['certificate_master_id'];
+            if ($certificate_master_id == null) {
+                $action .= "&nbsp;&nbsp;&nbsp;" . $add_certificate_button;
+            }else{
+                $update_certificate_button = "<a href='javascript:void(0);' class='btn btn-info btn-sm edit_certificate' id='".$certificate_master_id."' enrollment_id='".$enrollment_id."' student_id='".$student_id."'><i class='fa fa-eye'></i> View Certificate</a>";
+                $action .= "&nbsp;&nbsp;&nbsp;" . $update_certificate_button;
+            }
+
+            $id_card_master_id = $main['id_card_master_id'];
+            if ($id_card_master_id == null) {
+                $action .= "&nbsp;&nbsp;&nbsp;" . $add_id_card_button;
+            }else{
+                $update_id_card_button = "<a href='javascript:void(0);' class='btn btn-info btn-sm edit_id_card' id='".$id_card_master_id."' enrollment_id='".$enrollment_id."' student_id='".$student_id."'><i class='fa fa-eye'></i> View Id Card</a>";
+                $action .= "&nbsp;&nbsp;&nbsp;" . $update_id_card_button;
+            }
+
+            $nestedData['action'] = $action;
 
             $data[] = $nestedData;
         }
@@ -310,4 +332,628 @@ class Enrollments extends Front_Controller
         exit;
     }
 
+    // add certificate
+    public function AddStudentsCertificateDetails()
+    {
+        checkAdminLoginSession();
+
+        $login_detail = $this->session->userdata('login_detail');
+        $branch_id = $login_detail['branch_id'];
+        
+        $status = true;
+        $res_message = "";
+
+        $post_data = $this->input->post();
+        
+        //extract($post_data);
+        $enrollment_id = filter_smart($post_data['enrollment_id']);
+        $certificate_title = filter_smart($post_data['certificate_title']);
+
+        // print_r_custom($certificate_title);
+        // exit();
+
+        $get_Enrolllment_Student_Details = $this->Enrollment_Model->getEnrollmentDetailsById($enrollment_id);
+        // print_r_custom($get_Enrolllment_Student_Details,1);
+        $student_id=$get_Enrolllment_Student_Details['student_id'];
+        if(!empty($get_Enrolllment_Student_Details)){
+
+            $table_name = "certificate_master";
+
+            $insert_array = array(
+                "enrollment_id"         => $enrollment_id,
+                "certificate_status"       => '1',
+                "created_date"          => date('Y-m-d H:i:s'),
+                "created_by"            => $branch_id
+            );
+
+            $certificate_master_id = $this->Common_Model->insertIntoTable($table_name, $insert_array);
+
+            if($certificate_master_id > 0){
+
+                 // Update enrollments table
+                $table_name_1="enrollment_master";
+
+                $where = array('enrollment_master_id' => $enrollment_id);
+
+                $update_array = array(
+                    'certificate_master_id' => $certificate_master_id
+                );
+
+                $this->Common_Model->updateTable($table_name_1, $update_array, $where);
+
+                try{
+
+                    $ext = pathinfo($_FILES['certificate_file']['name'], PATHINFO_EXTENSION);
+
+                    $imageName = md5($certificate_master_id.time()). '.'.$ext;
+
+                    $target_dir = "uploads/student/".$student_id."/certificates/".$certificate_master_id."/";
+
+                    if (!file_exists($target_dir)) 
+                    {
+                        try 
+                        {
+                            mkdir($target_dir, 0777, true);
+                        } 
+                        catch (Exception $ex) 
+                        {
+                        die("error");
+                        }
+                    }
+
+                    //upload file
+                    $config['upload_path'] = $target_dir;
+                    $config['allowed_types'] = '*';
+                    $config['file_name'] = $imageName;
+                    
+                    $this->upload->initialize($config);
+                    //$this->load->library('upload', $config);
+
+                    if (!$this->upload->do_upload('certificate_file')) {
+                        //print_r_custom($this->upload->display_errors(),1);
+                        $status = false;
+                        $res_message = "Error occured while uploading certificate.";
+                    } else {
+
+                        $where = array('certificate_master_id' => $certificate_master_id);
+
+                        $update_array = array(
+                            "certificate_title"    => $certificate_title,
+                            "certificate_file"     => $imageName,
+                        );
+
+                        if($this->Common_Model->updateTable($table_name, $update_array, $where)){
+                            $status = true;
+                            $res_message = "Certificate uploaded successfully.";
+                        }
+                        else{
+                            $status = false;
+                            $res_message = "Something went wrong !";
+                        }
+                       
+                    }
+                }
+                catch (Exception $e) 
+                {
+                    $status = true;
+                    $res_message = "Error in certificate upload";
+                }
+                
+            }
+            else{
+                $status = false;
+                $res_message = "Something went wrong! Please try again... ";
+            }
+            
+        }
+        else{
+            $status = false;
+            $res_message = "Enrollment details not available in records. Please try again";
+        }
+        
+        $response = array(
+            'status'    => $status,
+            'message'   => $res_message
+        );
+
+        echo json_encode($response);
+        exit;
+    }
+
+    //get certificate details of student
+    public function GetStudentsCertificateDetails()
+    {
+        checkAdminLoginSession();
+
+        $login_detail = $this->session->userdata('login_detail');
+
+        $status = true;
+        $enrollment_student_details = array();
+        $message = "Certificate details fetch successfully";
+
+        $post_data = $this->input->post();
+
+        //extract($post_data);
+        $certificate_master_id = filter_smart($post_data['certificate_master_id']);
+        $get_Certificate_Details = $this->Certificate_Model->getCertificateDetailsById($certificate_master_id);
+        // print_r_custom($get_Certificate_Details,1);
+
+        if(count($get_Certificate_Details) == 0){
+            $status = false;
+            $certificate_details = array();
+            $message = "Certificate details not found";
+        }
+        else{
+            $status_html = null;
+
+            $certificate_status = $get_Certificate_Details['certificate_status'];
+
+            if($certificate_status == "1"){
+                $status_html .= "<option value='1' selected>Active</option>";
+                $status_html .= "<option value='0'>In-Active</option>";
+            }
+            else
+            if($certificate_status == "0" ){
+                $status_html .= "<option value='0' selected>In-Active</option>";
+                $status_html .= "<option value='1'>Active</option>";
+            }
+            else{
+                $status_html .= "<option value='1'>Active</option>";
+                $status_html .= "<option value='0'>In-Active</option>";
+            }
+        // print_r_custom($status_html);
+
+            $certificate_details = array(
+                'certificate_master_id' => $get_Certificate_Details['certificate_master_id'],
+                'certificate_title' => $get_Certificate_Details['certificate_title'],
+                'certificate_file' => $get_Certificate_Details['certificate_file'],
+                'certificate_status_html' => $status_html
+            );
+        }
+
+        $response = array(
+            'status'    => $status,
+            'certificate_details' => $certificate_details,
+            'message'   => $message
+        );
+        // print_r_custom($response);
+
+        echo json_encode($response);
+        // exit;
+    }
+
+    //update certificate details of student
+    public function StudentsCertificateUpdateProcess()
+    {
+        checkAdminLoginSession();
+
+        $login_detail = $this->session->userdata('login_detail');
+        $branch_id = $login_detail['branch_id'];
+        
+        $status = true;
+        $res_message = "";
+
+        $post_data = $this->input->post();
+        
+        extract($post_data);
+        $certificate_master_id = filter_smart($post_data['certificate_master_id']);
+        $student_id = filter_smart($post_data['student_id']);
+        $certificate_title = filter_smart($post_data['certificate_title']);
+        $certificate_status = filter_smart($post_data['certificate_status']);
+
+        $get_Certificate_Details = $this->Certificate_Model->getCertificateDetailsById($certificate_master_id);
+        // print_r_custom($get_Certificate_Details,1);
+
+        if(!empty($get_Certificate_Details)){
+
+            $table_name = "certificate_master";
+
+            $where = array("certificate_master_id" => $certificate_master_id);
+
+            $update_array = array(
+                "certificate_title"     => $certificate_title,
+                "certificate_status"    => $certificate_status,
+                "updated_date"          => date('Y-m-d H:i:s'),
+                "updated_by"            => $branch_id,
+            );
+
+            $is_updated_document = $this->Common_Model->updateTable($table_name, $update_array, $where);
+
+            if($is_updated_document){
+
+                if(count($_FILES) > 0){
+
+                    try{
+
+                        $ext = pathinfo($_FILES['certificate_file']['name'], PATHINFO_EXTENSION);
+    
+                        $certificateName = md5($certificate_master_id.time()). '.'.$ext;
+    
+                        $target_dir = "uploads/student/".$student_id."/certificates/".$certificate_master_id."/";
+    
+                        //----- [START] --- Delete current certificate
+                        $curr_certificate =  $get_Certificate_Details['certificate_file'];
+                        
+                        unlink($target_dir.$curr_certificate);
+                        //----- [END] --- 
+    
+                        if (!file_exists($target_dir)) 
+                        {
+                            try 
+                            {
+                                mkdir($target_dir, 0777, true);
+                            } 
+                            catch (Exception $ex) 
+                            {
+                            die("error");
+                            }
+                        }
+    
+                        //upload file
+                        $config['upload_path'] = $target_dir;
+                        $config['allowed_types'] = '*';
+                        $config['file_name'] = $certificateName;
+                        
+                        $this->upload->initialize($config);
+                        //$this->load->library('upload', $config);
+    
+                        if (!$this->upload->do_upload('certificate_file')) {
+                            //print_r_custom($this->upload->display_errors(),1);
+                            $status = false;
+                            $res_message = "Error occured while uploading certificate.";
+                        } else {
+    
+                            $where = array('certificate_master_id' => $certificate_master_id);
+    
+                            $update_array = array(
+                                "certificate_file" => $certificateName
+                            );
+    
+                            $this->Common_Model->updateTable($table_name, $update_array, $where);
+    
+                            $status = true;
+                            $res_message = "Certificate details updated successfully.";
+                        }
+                    }
+                    catch (Exception $e) 
+                    {
+                        $status = true;
+                        $res_message = "Error in chapter document upload";
+                    }
+                }
+                else{
+                    $status = true;
+                    $res_message = "Certificate details updated successfully.";
+                }
+            }
+            else{
+                $status = false;
+                $res_message = "Something went wrong! Please try again... ";
+            }
+            
+        }
+        else{
+            $status = false;
+            $res_message = "Certificate details not available in records. Please try again";
+        }
+        
+        $response = array(
+            'status'    => $status,
+            'message'   => $res_message
+        );
+
+        echo json_encode($response);
+        exit;
+    }
+
+    // add id card
+    public function AddStudentsIdCardDetails()
+    {
+        checkAdminLoginSession();
+
+        $login_detail = $this->session->userdata('login_detail');
+        $branch_id = $login_detail['branch_id'];
+        
+        $status = true;
+        $res_message = "";
+
+        $post_data = $this->input->post();
+        
+        //extract($post_data);
+        $enrollment_id = filter_smart($post_data['enrollment_id']);
+        $id_card_title = filter_smart($post_data['id_card_title']);
+
+        // print_r_custom($certificate_title);
+        // exit();
+
+        $get_Enrolllment_Student_Details = $this->Enrollment_Model->getEnrollmentDetailsById($enrollment_id);
+        // print_r_custom($get_Enrolllment_Student_Details,1);
+        $student_id=$get_Enrolllment_Student_Details['student_id'];
+        if(!empty($get_Enrolllment_Student_Details)){
+
+            $table_name = "id_card_master";
+
+            $insert_array = array(
+                "enrollment_id"         => $enrollment_id,
+                "id_card_status"    => '1',
+                "created_date"          => date('Y-m-d H:i:s'),
+                "created_by"            => $branch_id
+            );
+
+            $id_card_master_id = $this->Common_Model->insertIntoTable($table_name, $insert_array);
+
+            if($id_card_master_id > 0){
+
+                    // Update enrollments table
+                $table_name_1="enrollment_master";
+
+                $where = array('enrollment_master_id' => $enrollment_id);
+
+                $update_array = array(
+                    'id_card_master_id' => $id_card_master_id
+                );
+
+                $this->Common_Model->updateTable($table_name_1, $update_array, $where);
+
+                try{
+
+                    $ext = pathinfo($_FILES['id_card_file']['name'], PATHINFO_EXTENSION);
+
+                    $imageName = md5($id_card_master_id.time()). '.'.$ext;
+
+                    $target_dir = "uploads/student/".$student_id."/id-card/";
+
+                    if (!file_exists($target_dir)) 
+                    {
+                        try 
+                        {
+                            mkdir($target_dir, 0777, true);
+                        } 
+                        catch (Exception $ex) 
+                        {
+                        die("error");
+                        }
+                    }
+
+                    //upload file
+                    $config['upload_path'] = $target_dir;
+                    $config['allowed_types'] = '*';
+                    $config['file_name'] = $imageName;
+                    
+                    $this->upload->initialize($config);
+
+                    if (!$this->upload->do_upload('id_card_file')) {
+                        $status = false;
+                        $res_message = "Error occured while uploading id card.";
+                    } else {
+
+                        $where = array('id_card_master_id' => $id_card_master_id);
+
+                        $update_array = array(
+                            "id_card_title"    => $id_card_title,
+                            "id_card_file"     => $imageName,
+                        );
+
+                        if($this->Common_Model->updateTable($table_name, $update_array, $where)){
+                            $status = true;
+                            $res_message = "Id Card uploaded successfully.";
+                        }
+                        else{
+                            $status = false;
+                            $res_message = "Something went wrong !";
+                        }
+                        
+                    }
+                }
+                catch (Exception $e) 
+                {
+                    $status = true;
+                    $res_message = "Error in certificate upload";
+                }
+                
+            }
+            else{
+                $status = false;
+                $res_message = "Something went wrong! Please try again... ";
+            }
+            
+        }
+        else{
+            $status = false;
+            $res_message = "Enrollment details not available in records. Please try again";
+        }
+        
+        $response = array(
+            'status'    => $status,
+            'message'   => $res_message
+        );
+
+        echo json_encode($response);
+        exit;
+    }
+
+    //get id card details of student
+    public function GetStudentsIdCardDetails()
+    {
+        checkAdminLoginSession();
+
+        $login_detail = $this->session->userdata('login_detail');
+
+        $status = true;
+        $enrollment_student_details = array();
+        $message = "Certificate details fetch successfully";
+
+        $post_data = $this->input->post();
+
+        //extract($post_data);
+        $id_card_master_id = filter_smart($post_data['id_card_master_id']);
+        $get_Id_Card_Details = $this->Id_Card_Model->getIdCardDetailsById($id_card_master_id);
+        // print_r_custom($get_Id_Card_Details,1);
+
+        if(count($get_Id_Card_Details) == 0){
+            $status = false;
+            $certificate_details = array();
+            $message = "Id Card details not found";
+        }
+        else{
+            $status_html = null;
+
+            $id_card_status = $get_Id_Card_Details['id_card_status'];
+
+            if($id_card_status == "1"){
+                $status_html .= "<option value='1' selected>Active</option>";
+                $status_html .= "<option value='0'>In-Active</option>";
+            }
+            else
+            if($id_card_status == "0" ){
+                $status_html .= "<option value='0' selected>In-Active</option>";
+                $status_html .= "<option value='1'>Active</option>";
+            }
+            else{
+                $status_html .= "<option value='1'>Active</option>";
+                $status_html .= "<option value='0'>In-Active</option>";
+            }
+            // print_r_custom($status_html);
+            $id_card_details = array(
+                'id_card_master_id' => $get_Id_Card_Details['id_card_master_id'],
+                'id_card_title' => $get_Id_Card_Details['id_card_title'],
+                'id_card_file' => $get_Id_Card_Details['id_card_file'],
+                'id_card_status_html' => $status_html
+            );
+        }
+
+        $response = array(
+            'status'    => $status,
+            'id_card_details' => $id_card_details,
+            'message'   => $message
+        );
+        // print_r_custom($response);
+
+        echo json_encode($response);
+        // exit;
+    }
+
+    //update id card details of student
+    public function StudentsIdCardUpdateProcess()
+    {
+        checkAdminLoginSession();
+
+        $login_detail = $this->session->userdata('login_detail');
+        $branch_id = $login_detail['branch_id'];
+        
+        $status = true;
+        $res_message = "";
+
+        $post_data = $this->input->post();
+        
+        extract($post_data);
+        $id_card_master_id = filter_smart($post_data['id_card_master_id']);
+        $student_id = filter_smart($post_data['student_id']);
+        $id_card_title = filter_smart($post_data['id_card_title']);
+        $id_card_status = filter_smart($post_data['id_card_status']);
+
+        $get_Id_Card_Details = $this->Id_Card_Model->getIdCardDetailsById($id_card_master_id);
+        // print_r_custom($get_Id_Card_Details,1);
+
+        if(!empty($get_Id_Card_Details)){
+
+            $table_name = "id_card_master";
+
+            $where = array("id_card_master_id" => $id_card_master_id);
+
+            $update_array = array(
+                "id_card_title"     => $id_card_title,
+                "id_card_status"    => $id_card_status,
+                "updated_date"          => date('Y-m-d H:i:s'),
+                "updated_by"            => $branch_id,
+            );
+
+            $is_updated_document = $this->Common_Model->updateTable($table_name, $update_array, $where);
+
+            if($is_updated_document){
+
+                if(count($_FILES) > 0){
+
+                    try{
+
+                        $ext = pathinfo($_FILES['id_card_file']['name'], PATHINFO_EXTENSION);
+    
+                        $idCardName = md5($id_card_master_id.time()). '.'.$ext;
+    
+                        $target_dir = "uploads/student/".$student_id."/id-card/";
+    
+                        //----- [START] --- Delete current certificate
+                        $curr_id_card =  $get_Id_Card_Details['id_card_file'];
+                        
+                        unlink($target_dir.$curr_id_card);
+                        //----- [END] --- 
+    
+                        if (!file_exists($target_dir)) 
+                        {
+                            try 
+                            {
+                                mkdir($target_dir, 0777, true);
+                            } 
+                            catch (Exception $ex) 
+                            {
+                            die("error");
+                            }
+                        }
+    
+                        //upload file
+                        $config['upload_path'] = $target_dir;
+                        $config['allowed_types'] = '*';
+                        $config['file_name'] = $idCardName;
+                        
+                        $this->upload->initialize($config);
+                        //$this->load->library('upload', $config);
+    
+                        if (!$this->upload->do_upload('id_card_file')) {
+                            //print_r_custom($this->upload->display_errors(),1);
+                            $status = false;
+                            $res_message = "Error occured while uploading Id Card.";
+                        } else {
+    
+                            $where = array('id_card_master_id' => $id_card_master_id);
+    
+                            $update_array = array(
+                                "id_card_file" => $idCardName
+                            );
+    
+                            $this->Common_Model->updateTable($table_name, $update_array, $where);
+    
+                            $status = true;
+                            $res_message = "Id Card details updated successfully.";
+                        }
+                    }
+                    catch (Exception $e) 
+                    {
+                        $status = true;
+                        $res_message = "Error in Id Card upload";
+                    }
+                }
+                else{
+                    $status = true;
+                    $res_message = "Id Card details updated successfully.";
+                }
+            }
+            else{
+                $status = false;
+                $res_message = "Something went wrong! Please try again... ";
+            }
+            
+        }
+        else{
+            $status = false;
+            $res_message = "Certificate details not available in records. Please try again";
+        }
+        
+        $response = array(
+            'status'    => $status,
+            'message'   => $res_message
+        );
+
+        echo json_encode($response);
+        exit;
+    }
 }

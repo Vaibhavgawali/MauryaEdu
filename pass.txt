@@ -71,3 +71,27 @@ Branch:->
 -> 
 
 ///////////////////////////////////////////
+
+Offline Payment Method
+
+=> Enroll Now button
+
+Form :-
+1) course list (only not enrolled) 
+2) installments (input type)
+3) course amount   
+4) confirm order 
+
+-> create transaction record
+-> transaction id + installment records with particular number and 
+    amount for installment to be course amount / installments 
+-> pay first installlment
+
+=============================================
+
+installlment button
+
+-> list of installments with pay button if not paid
+-> update status of installment by installment id
+
+================================================

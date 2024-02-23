@@ -79,7 +79,6 @@
 			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NN5PFWW" height="0" width="0" style="display:none;visibility:hidden"></iframe>
 		</noscript>
 		<!-- End Google Tag Manager (noscript) -->
-
 		<div class="page">
 			<div class="page-single">
 				<div class="container">
@@ -107,6 +106,15 @@
 												<div class="input-group mb-4">
 													<span class="input-group-addon"><i class="fa fa-phone  w-4"></i></span>
 													<input type="text" class="form-control" id="contact" placeholder="Enter Mobile Number">
+												</div>
+												<div class="input-group mb-4">
+													<span class="input-group-addon"> <i class="fa fa-book w-4"></i></span>
+													<select class="form-control" id="branch">
+														<option value="" selected disabled>Select</option>
+														<?php foreach ($branches as $branch): ?>
+															<option value="<?php echo $branch['branch_id']; ?>"><?php echo $branch['branch_name']; ?></option>
+														<?php endforeach; ?>
+													</select>
 												</div>
 												<div class="form-group">
 													<label class="custom-control custom-checkbox">

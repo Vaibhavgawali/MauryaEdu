@@ -18,7 +18,7 @@ $(document).ready(function () {
     processing: true,
     serverSide: true,
     ajax: {
-      url: base_url + "admin/contact-list-ajax",
+      url: base_url + "subadmin/contact-list-ajax",
       cache: false,
       type: "post", // method  , by default get
       error: function () {
@@ -56,7 +56,7 @@ $(document).ready(function () {
           $("#loader-spin").show();
           $.ajax({
             type: "post",
-            url: base_url + "admin/contact-delete",
+            url: base_url + "subadmin/contact-delete",
             dataType: "json",
             data: data,
             cache: false,

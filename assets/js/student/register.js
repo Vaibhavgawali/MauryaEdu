@@ -12,6 +12,7 @@ $(document).ready(function () {
     var full_name = $("#full_name").val();
     var emailid = $("#emailid").val();
     var contact = $("#contact").val();
+    var branch = $("#branch").val();
     var terms_and_policy = "";
 
     $("#register_status").html("");
@@ -68,6 +69,19 @@ $(document).ready(function () {
       return false;
     }
 
+    if (
+      branch == "" ||
+      branch == null ||
+      branch == "undefined" ||
+      branch == undefined
+    ) {
+      $("#register_status").html(
+        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Branch is required.</div>"
+      );
+      $("#branch").focus();
+      return false;
+    }
+
     if ($("#terms_and_policy").prop("checked") == false) {
       $("#register_status").html(
         "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Agree terms & condition is required.</div>"
@@ -85,6 +99,7 @@ $(document).ready(function () {
       full_name: full_name,
       emailid: emailid,
       contact: contact,
+      branch: branch,
       terms_and_policy: terms_and_policy,
     };
 

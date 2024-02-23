@@ -8,21 +8,21 @@ class Branch_Admin_Model extends CI_Model {
     
     //--- [START]  - branch admin details
 
-    /*  Get course category Info using status  */
+    /*  Get branches Info using status  */
     function getAllBranchDetailsByStatus($branch_status){
         $result = $this->db->query("SELECT * FROM branch_master WHERE branch_status = '".$branch_status."'")->result_array();
 
         return $result;
     }
 
-    /*  Get course category Info from name  */
+    /*  Get branch Info from name  */
     function getBranchDetailsByName($branch_name){
         $result = $this->db->query("SELECT * FROM branch_master WHERE LOWER(branch_name) = '".strtolower($branch_name)."'")->row_array();
 
         return $result;
     }
 
-    /*  Get course category Info from ID  */
+    /*  Get branch Info from ID  */
     function getBranchAdminDetailsById($branch_admin_id){
         $result = $this->db->query("SELECT * FROM branch_admin_master WHERE admin_id = '".$branch_admin_id."'")->row_array();
 
@@ -36,7 +36,7 @@ class Branch_Admin_Model extends CI_Model {
         return $result;
     }
 
-    // count all course category from list
+    // count all branch admin from list
     function countAllBranchAdminList($where){
         // print_r($where);
         $sql = "SELECT COUNT(admin_id) AS total FROM branch_admin_master As bam
@@ -45,7 +45,7 @@ class Branch_Admin_Model extends CI_Model {
         return $result->row();
     }
 
-    // GET LIST OF ALL course category from list
+    // GET LIST OF ALL branch admin from list
     function listBranchAdminQuery($where, $order_by, $start, $length, $order_dir){
         $sql = "SELECT * 
             FROM branch_admin_master As bam
@@ -64,7 +64,7 @@ class Branch_Admin_Model extends CI_Model {
         return $array;
     }
 
-    /*  Get course branch admin Info from name with branch id  */
+    /*  Get branch admin Info from name with branch id  */
     function getBranchAdminByNameAndBranch($admin_name, $branch_id){
 
         $this->db->select('*');
@@ -78,6 +78,9 @@ class Branch_Admin_Model extends CI_Model {
         return $result;
     }
 
-    
-
+    /*  Get Student Info from emailid & user id  */
+    function getBranchAdminInfoFromEmailWithOtherAdminId($emailid, $admin_id){
+        $result = $this->db->query("SELECT * FROM branch_admin_master WHERE admin_emailid = '".$emailid."' AND admin_id != $admin_id")->row_array();
+        return $result;
+    } 
 }

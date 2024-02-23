@@ -7,12 +7,8 @@ class Contacts extends Front_Controller
     {
         parent::__construct();
 
-        // $this->load->model('Common_Model');
-        // $this->load->model('Common/Course_Category_Model');
         $this->load->helper('common_helper');
-
         $this->load->model('Common/Contacts_Model');
-
     }
 
     public function index(){
@@ -50,6 +46,7 @@ class Contacts extends Front_Controller
             1=>'contacts.fullname',
             2=>'contacts.email',
             3=>'contacts.phone',
+            4=>'branch_master.branch_name',
             5=>'contacts.created_at'
         ); 
         
@@ -62,7 +59,7 @@ class Contacts extends Front_Controller
         /*Saerch common search*/
         if (!empty($searchTerm)) {
             $where .= "AND (";
-            $where .= " contacts.fullname like '%$searchTerm%'  or  contacts.email like '%$searchTerm%' ";
+            $where .= " contacts.fullname like '%$searchTerm%'  or  contacts.email like '%$searchTerm%' or  branch_master.branch_name like '%$searchTerm%' ";
             $where .= ") ";
         }
 
@@ -84,6 +81,7 @@ class Contacts extends Front_Controller
             $nestedData['fullname'] = $main['fullname'];
             $nestedData['email'] = $main['email'];
             $nestedData['phone'] = $main['phone'];
+            $nestedData['branch_name'] = $main['branch_name'];
             $nestedData['created_at'] = date('d-m-Y H:i:s', strtotime($main['created_at']));
 
             $id = $main['id'];
