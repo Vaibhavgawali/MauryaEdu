@@ -16,7 +16,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('assets/images/favicon.png'); ?>" />
 
 		<!-- Title -->
-		<title>Subadmin - Student Portal</title>
+		<title>Branch Admin - Student Portal</title>
 		<link rel="stylesheet" href="<?php echo base_url('assets/fonts/fonts/font-awesome.min.css'); ?>">
 
 		<!-- Font Family-->

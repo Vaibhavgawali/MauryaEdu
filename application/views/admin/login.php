@@ -81,7 +81,7 @@
 														<button type="button" class="btn btn-gradient-primary btn-block" id="btn_login_submit">Login</button>
 													</div>
 													<div class="col-12">
-														<a href="#" class="btn btn-link box-shadow-0 px-0">Forgot password?</a>
+														<a href="<?php echo base_url('admin/forgot-password'); ?>" class="btn btn-link box-shadow-0 px-0">Forgot password?</a>
 													</div>
 												</div>
 											</div>

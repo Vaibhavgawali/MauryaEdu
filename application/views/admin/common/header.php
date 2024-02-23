@@ -11,8 +11,16 @@
 
 							<div class="d-flex order-lg-2 ml-auto">
 							    <div class="dropdown">
+										<?php
+											if(!empty($adminInfo['profile_pic'])){
+												$img_path = base_url().'uploads/admin/profile-pic/'.$adminInfo['profile_pic'];
+											}
+											else{
+												$img_path = base_url().'assets/images/profile-photo-not-available.png';
+											}
+										?>
 									<a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
-										<span class="avatar avatar-md brround"><img src="<?php echo base_url('assets/images/profile-photo-not-available.png'); ?>" alt="Profile-img" class="avatar avatar-md brround"></span>
+										<span class="avatar avatar-md brround"><img src="<?php echo $img_path; ?>" alt="Profile-img" class="avatar avatar-md brround"></span>
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow ">
 										<div class="text-center">
@@ -20,8 +28,11 @@
 
 											<div class="dropdown-divider"></div>
 										</div>
-										<a class="dropdown-item" href="#">
+										<a class="dropdown-item" href="<?php echo base_url('admin/my-profile') ?>">
 											<i class="dropdown-icon mdi mdi-account-outline "></i> Profile
+										</a>
+										<a href="<?php echo base_url('admin/change-password') ?>" class="dropdown-item">
+											<i class="dropdown-icon mdi  mdi-lock"></i> Change Password
 										</a>
 										<a href="<?php echo base_url('admin/logout')?>" class="dropdown-item"><i class="dropdown-icon mdi  mdi-logout-variant"></i> Sign out
 										</a>
