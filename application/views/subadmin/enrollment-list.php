@@ -198,7 +198,6 @@
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
 
-
                 <!-- Standard modal content -->
                 <div id="add-id-card-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog"  role="document">

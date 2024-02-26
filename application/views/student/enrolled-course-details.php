@@ -134,10 +134,10 @@
 
                     <!-- Course Video Links : START-->
                     <?php
-                        if(isset($course_video_details) && count($course_video_details) > 0)
+                       // if(isset($course_video_details) && count($course_video_details) > 0)
                         {
                             ?>
-                            <div class="col-md-12 ">
+                            <!-- <div class="col-md-12 ">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Course Video Links</h3>
@@ -178,7 +178,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>    
+                            </div>     -->
                             <?php    
                         }
                     ?>
