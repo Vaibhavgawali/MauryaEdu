@@ -82,6 +82,10 @@ $route['admin/get-course-details'] = 'admin/StudentEnroll/GetCourseDetails';
 $route['admin/enrollment-add-process'] = 'admin/StudentEnroll/StudentEnrollAddProcess';
 $route['admin/enrollment-list/(:any)'] = 'admin/StudentEnroll/AddStudentEnroll/$1';
 
+//--- Installments
+$route['admin/get-installments'] = 'admin/Installment/getInstallments';
+$route['admin/update-installments'] = 'admin/Installment/updateInstallments';
+
 //--- Course Category list
 $route['admin/course-category-list'] = 'admin/CourseCategory';
 $route['admin/course-category-add-process'] = 'admin/CourseCategory/CourseCategoryAddProcess';
@@ -470,6 +474,10 @@ $route['subadmin/student-enrollemnt-delete'] = 'subadmin/Enrollments/DeleteEnrol
 $route['subadmin/get-course-details'] = 'subadmin/StudentEnroll/GetCourseDetails';
 $route['subadmin/enrollment-add-process'] = 'subadmin/StudentEnroll/StudentEnrollAddProcess';
 $route['subadmin/enrollment-list/(:any)'] = 'subadmin/StudentEnroll/AddStudentEnroll/$1';
+
+//--- Installments
+$route['subadmin/get-installments'] = 'subadmin/Installment/getInstallments';
+$route['subadmin/update-installments'] = 'subadmin/Installment/updateInstallments';
 
 //--- Certificates
 $route['subadmin/certificate-add-process'] = 'subadmin/Enrollments/AddStudentsCertificateDetails';

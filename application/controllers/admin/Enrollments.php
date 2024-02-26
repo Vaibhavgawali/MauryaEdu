@@ -20,6 +20,7 @@ class Enrollments extends Front_Controller
         checkAdminLoginSession();
 
         addJs(array("admin/enrollment-list.js"));
+        addJs(array("admin/installment.js"));
         
         $login_detail = $this->session->userdata('login_detail');
         //print_r_custom($login_detail,1);
@@ -169,7 +170,7 @@ class Enrollments extends Front_Controller
             $payment_status = $main['payment_status'];
             if($payment_status == "Pending"){
                 $payment_master_id=$main['payment_master_id'];
-                $payment_button = "<a href='javascript:void(0);' class='btn btn-info btn-sm edit_id_card' id='".$payment_master_id."' enrollment_id='".$enrollment_id."' student_id='".$student_id."'><i class='fa fa-plus'></i>Make Payment</a>";
+                $payment_button = "<a href='javascript:void(0);' class='btn btn-info btn-sm payment_btn' id='".$payment_master_id."' enrollment_id='".$enrollment_id."' student_id='".$student_id."' course_price='".$main['paid_price']."'><i class='fa fa-plus'></i>Make Payment</a>";
                 $action .= "&nbsp;&nbsp;&nbsp;" . $payment_button;
             }
 

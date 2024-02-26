@@ -137,7 +137,7 @@ class StudentEnroll extends Front_Controller
                 $insert_array = array(
                     'student_id' => $student_id,
                     'course_master_id' => $course_master_id,
-                    'paid_price' => $installment_amount,
+                    'paid_price' => $course_price,
                     'no_of_days'=> $get_Course_Details['course_duration_number_of_days'],
                     'valid_upto' => date('Y-m-d H:i:s', strtotime($get_Course_Details['course_end_date'] . " 23:59:59")),
                     'payment_master_id' => $payment_master_id,

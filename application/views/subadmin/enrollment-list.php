@@ -199,8 +199,8 @@
                 </div><!-- /.modal -->
 
 
-                                <!-- Standard modal content -->
-                                <div id="add-id-card-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                <!-- Standard modal content -->
+                <div id="add-id-card-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog"  role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -250,7 +250,7 @@
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
 
-                  <!-- Standard modal content -->
+                <!-- Standard modal content -->
                 <div id="update-id-card-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog"  role="document">
                         <div class="modal-content">
@@ -317,6 +317,84 @@
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
+
+                <!-- Modal -->
+                <div id="installmentModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog"  role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-primary">Update Installment Details</h3>
+                                <button type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="installmentForm">
+                                    <input  type="hidden" class="form-control"  id="razor_payment_id" name="razor_payment_id">
+                                    <input  type="hidden" class="form-control"  id="last_installment" name="last_installment">
+
+                                    <div class="row g-2">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="focus-label" for="course_price">Course Price:<span class="error-text">*</span> </label>
+                                                <input  type="text" class="form-control"  id="course_price" name="course_price" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-2">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="focus-label" for="total_installment_amount">Total Amount Paid:<span class="error-text">*</span> </label>
+                                                <input  type="text" class="form-control"  id="total_installment_amount" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-2">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="focus-label" for="installment">Installment <span class="error-text">*</span> </label>
+                                                <select class="form-control" id="installment" name="installment">
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-2">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="focus-label" for="installment_amount">Installment Amount<span class="error-text">*</span> </label>
+                                                <input  type="text" class="form-control"  id="installment_amount" >
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-2">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="focus-label" for="paid_status">Paid Status <span class="error-text">*</span> </label>
+                                                <select class="form-control" id="paid_status">
+                                                    <option value='0' selected>Unpaid</option>
+                                                    <option value='1'>Paid</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-2">
+                                        <div class="col-md-12" id="update_installment_status">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal"><i class="fa fa-ban"></i> Close</button>
+                                <button type="button" class="btn btn-primary" id="add_installment"><i class="fa fa-save"></i> Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>    
