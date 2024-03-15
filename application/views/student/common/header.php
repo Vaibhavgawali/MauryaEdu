@@ -15,6 +15,8 @@
       <span class="mdi mdi-menu"></span>
     </button>
     <ul class="navbar-nav navbar-nav-right">
+    <input type="hidden" id="logged_in_student_id"
+									value="<?= isset($studentInfo['student_id']) && $studentInfo['student_id'] != '' ? $studentInfo['student_id'] : '0'; ?>" />
       <li class="nav-item nav-profile dropdown">
         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
           <div class="nav-profile-img">

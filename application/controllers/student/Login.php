@@ -34,7 +34,7 @@ class Login extends Front_Controller
         //extract($post_data);
         $emailid = filter_smart($post_data['emailid']);
         $password = filter_smart($post_data['password']);
-        
+        // print_r_custom($password,1);
         $password = hash('sha512', $password);
 
         $student_info = $this->Login_Model->checkEmailIdExistsOrNot($emailid);

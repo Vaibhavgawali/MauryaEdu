@@ -40,33 +40,15 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<?php echo base_url('student/test-results'); ?>">
-        <span class="menu-title">Test Results</span>
+      <a class="nav-link" href="<?php echo base_url('student/certificates');?>">
+        <span class="menu-title">Certificate</span>
         <i class="mdi  mdi-star-half menu-icon"></i>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<?php echo base_url('student/test-schedules'); ?>">
-        <span class="menu-title">Test Schedule</span>
-        <i class="mdi mdi-timetable menu-icon"></i>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="<?php echo base_url('student/announcements'); ?>">
-        <span class="menu-title">Announcements</span>
-        <i class="mdi  mdi-bullhorn menu-icon"></i>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="<?php echo base_url('student/pt-meetings'); ?>">
-        <span class="menu-title">Parent - Teacher meeting</span>
-        <i class="mdi mdi-human-male-female menu-icon"></i>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="<?php echo base_url('student/holiday-information'); ?>">
-        <span class="menu-title">Holiday information</span>
-        <i class="mdi mdi mdi-calendar menu-icon"></i>
+      <a class="nav-link" href="<?php echo base_url('student/id-cards'); ?>">
+        <span class="menu-title">Id Card</span>
+        <i class="mdi mdi-account-card-details menu-icon"></i>
       </a>
     </li>
   </ul>

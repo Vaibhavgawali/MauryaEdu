@@ -8,12 +8,10 @@
             </h3>
         </div>
         <div class="container">
-        <div class="row g-5" id="course-grid">
-            <div class="col-12">
+            <div class="row g-4" id="course-grid">
                 
             </div>
-        </div>
-        <div class="text-center my-5">
+            <div class="text-center my-5">
                 <input type="hidden" name="page_num" id="page_num" value="1" />
                 <button type="button" id="load-more-btn" class="btn btn-success">Load more...</button>
             </div>
