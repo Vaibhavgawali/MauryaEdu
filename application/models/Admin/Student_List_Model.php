@@ -49,7 +49,7 @@ class Student_List_Model extends CI_Model {
 
     // GET LIST OF ALL Enrolled students from list
     function listEnrolledStudentQuery($where, $order_by, $start, $length, $order_dir){
-        $sql = "SELECT em.*, sm.full_name, sm.emailid, sm.contact,sm.branch_id,bm.branch_name, cm.course_name, pm.course_actual_price 
+        $sql = "SELECT em.*, sm.full_name, sm.emailid, sm.contact,sm.branch_id,bm.branch_name, cm.course_name, pm.course_actual_price ,pm.payment_status
             FROM enrollment_master AS em 
             INNER JOIN student_master as sm ON sm.student_id = em.student_id
             INNER JOIN course_master as cm ON cm.course_master_id = em.course_master_id

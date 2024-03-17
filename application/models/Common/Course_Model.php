@@ -9,11 +9,18 @@ class Course_Model extends CI_Model {
     //--- [START]  - course details
 
     /*  Get course Info using status  */
-    function getAllCourseDetailsByStatus($course_status){
-        $result = $this->db->query("SELECT * FROM course_master WHERE course_status = '".$course_status."'")->result_array();
+    function getAllCourseDetailsByStatus($course_status,$additional_where=NULL){
 
+        $sql = "SELECT * FROM course_master WHERE course_status = '".$course_status."'";
+
+        if (!empty($additional_where)) {
+            $sql .= $additional_where;
+        }
+
+        $result = $this->db->query($sql)->result_array();
         return $result;
     }
+
 
     /*  Get course Info from name  */
     function getCourseDetailsByNameAndCategory($course_name, $course_category_id){

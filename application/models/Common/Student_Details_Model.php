@@ -128,8 +128,37 @@ class Student_Details_Model extends CI_Model {
         );
         return $array;
     }
-
    
+    // Get all courses not enrolled by student
+    public function getNotEnrolledCourses($student_id, $branch_filter) {
+        $this->db->select(array('course_master_id','course_name'));
+        $this->db->from('course_master');
+
+        $this->db->where('course_master_id NOT IN (SELECT course_master_id FROM enrollment_master WHERE student_id = ' . $student_id . ')', NULL, FALSE);
+        $this->db->where($branch_filter);
+        $this->db->where('course_status',1);
+    
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    // Check if a student is enrolled in a course
+    public function is_student_enrolled($student_id, $course_master_id)
+    {
+        $this->db->select('course_master_id');
+        $this->db->from('enrollment_master');
+        $this->db->where('student_id', $student_id);
+        $this->db->where('course_master_id', $course_master_id);
+        $query = $this->db->get();
+
+        // Check if any rows returned
+        if ($query->num_rows() > 0) {
+            return TRUE; 
+        } else {
+            return FALSE;
+        }
+    }
+
 }//end of class
 
 ?>

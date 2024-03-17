@@ -107,7 +107,7 @@ class MyProfile extends Front_Controller
         $full_name = filter_smart($post_data['full_name']);
         $emailid = filter_smart($post_data['emailid']);
         $contact = filter_smart($post_data['contact']);
-        $address = filter_smart($post_data['address']);
+        $address = isset($post_data['address']) ? filter_smart($post_data['address']) : '';
         $aadhar_number = filter_smart($post_data['aadhar_number']);
 
         $studentInfo = $this->Student_Details_Model->getStudentsInfoFromEmailWithOtherUserId($emailid, $student_id);

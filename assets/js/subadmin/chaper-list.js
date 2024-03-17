@@ -3,6 +3,12 @@ $(document).ready(function () {
   $("#btn_add_chapter_modal").click(function () {
     $("#add-chapter-modal").modal("show");
   });
+  $('.modal-close').click(function(){
+    $("#add-chapter-modal").modal("hide");
+    $("#update-chapter-modal").modal("hide");
+
+   
+  })
 
   $("#course_category_id, #update_course_category_id").change(function () {
     $("#course_master_id").html(

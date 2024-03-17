@@ -25,67 +25,41 @@ $(document).ready(function () {
 
         if (res.status == true) {
           //console.log(res.courseData.length);
-          if (res.courseData.length > 0) {
-            for (let i = 0; i < res.courseData.length; i++) {
-              courseData +=
-                `<div class="col-lg-3 col-md-offset-3 hovernow">
-													<a href = "` +
-                base_url +
-                `student/enrolled-course-details/` +
-                res.courseData[i].course_master_id +
-                `">
-														<div class="card item-card">
-															<div class="card-body pb-0">
-																<div class="text-center">` +
-                `<img src="` +
-                base_url +
-                `uploads/course/` +
-                res.courseData[i].course_master_id +
-                `/course-image/` +
-                res.courseData[i].course_image +
-                `` +
-                `" alt="` +
-                res.courseData[i].course_name +
-                `" class="img-fluid">
-																</div>
+          const courseCard = res.courseData.map((Elem)=>
+          {
+            console.log(Elem)
+            return `<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+            <div class="card">
 
-																<div class="text-center my-5">
-																	<p><b>` +
-                res.courseData[i].course_category_name +
-                `</b><br>
-																	<b class="course_title">` +
-                res.courseData[i].course_name +
-                `</b><br><br>
-																	Enrolled On: ` +
-                res.courseData[i].course_enrollment_date +
-                `<br>
-																	Duration: ` +
-                res.courseData[i].no_of_days +
-                ` days<br>
-																	Valid Upto: ` +
-                res.courseData[i].course_validity +
-                `</p>
-																</div>
-																															
-															</div>
-															<div class="text-center border-top">            	
-																<a href="` +
-                base_url +
-                `student/enrolled-course-details/` +
-                res.courseData[i].course_master_id +
-                `" id='` +
-                res.courseData[i].course_master_id +
-                `' course_sell_price ='` +
-                res.courseData[i].course_sell_price +
-                `'  class="btn btn-primary btn-sm mt-4 mb-4"><i class="fa fa-eye"></i> View In Detail </a>
-															</div>
-														</div>
-													</a>
-												</div>`;
-            }
-          }
+                <div class="card-body">
+                    <div class="img-div">
+                        <img src="${base_url}uploads/course/${Elem.course_master_id}/course-image/${Elem.course_image}" class="img-fluid" alt="${base_url}/uploads/course/${Elem.course_master_id}/course-image/${Elem.course_image}">
+                        
+                    </div>
+                    <div class="card-title">
+                        <div class="badge badge-primary text-left">${Elem.course_category_name}</div>
+                    </div>
+                    <div>
+                        <h4 class="card-title">${Elem.course_name.length > 30 ? Elem.course_name.substring(0,30)+"...":Elem.course_name}</h4>
+                    </div>
+                    <p class="card-text">Duration : <span class="">${Elem.course_duration_number_of_days} Days</span></p>
+                    <div class="border"></div>
+                    <div class="d-flex justify-content-between align-items-center my-1 ">
+
+                        <div>
+                            <a href="${base_url}/student/enrolled-course-details/${Elem.course_master_id} "class="btn btn-gradient-danger btn-sm ">View Details <i class="mdi mdi-arrow-right"></i></a>
+                        </div>
+                        <div class="d-flex flex-md-column gap-3 gap-md-0 flex-xl-row gap-xl-3 mt-3">
+                            <p class="fw-lighter  text-decoration-line-through mt-1">₹ ${Math.floor(Elem.course_actual_price)}</p>
+                            <p class="fw-bold fs-5 text-success">₹${Math.floor(Elem.course_sell_price)}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`
+          })
           // console.log(courseData)
-          $("#course-grid").append(courseData);
+          $("#course-grid").append(courseCard);
           if (res.remaining_course <= 0) {
             $("#load-more-btn").hide();
           }

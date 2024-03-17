@@ -1,4 +1,9 @@
 $(document).ready(function () {
+
+
+
+
+  
   /*   Prevent entering charaters in mobile & phone number   */
   $("#contact").keypress(function (e) {
     //if the letter is not digit then display error and don't type anything
