@@ -1,30 +1,16 @@
-<?php 
-    $page = $this->uri->segment(1);
-    //print_r_custom($login_detail,1);
-?>
-
-<style type="text/css">
-    .chapter_name{
-        background-color: #ff685c;
-        color: #fff;
-    }
-
-    .sub_chapter_name{
-        background-color: #ddd;
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-book-open-page-variant"></i>
+                </span> 
+BookLet/Practise Assignments
+            </h3>
+        </div>
+        <div class="container">
         
-    }
-</style>
-
-<div class="page-header">
-    <h4 class="page-title">Theory Booklets</h4>
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item " aria-current="page"><a href="<?php echo base_url('student/dashboard'); ?>">Dashboard</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Theory Booklets</li>
-    </ol>
-
-</div>
-
-<div class="row row-cards">
+        <div class="row row-cards">
     <div class="container">
         <div class="col-xl-12 col-lg-12 col-md-12">
             <div class="card">
@@ -181,3 +167,17 @@
         </div>
     </div>
 </div>    
+
+        </div>
+    </div>
+    <!-- content-wrapper ends -->
+    <!-- partial:partials/_footer.html -->
+    <footer class="footer">
+        <div class="container-fluid d-flex justify-content-between">
+            <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © Maurya 2024 </span>
+            <span class="float-none float-sm-end mt-1 mt-sm-0 text-end">Designed & Developed By <a style="text-decoration: none;" href="https://www.zynovvatech.com/" target="_blank">Zynovvatech</a></span>
+        </div>
+    </footer>
+    <!-- partial -->
+</div>
+
