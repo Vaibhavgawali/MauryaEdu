@@ -66,6 +66,9 @@ $(document).ready(function () {
           $("#update_status").val(res.student_details.status);
 
           $("#update-student-modal").modal("show");
+          $('.modal-close-btn').click(function(){
+            $("#update-student-modal").modal("hide");
+          })
         } else {
           generateNotification("error", res.message);
           return false;
@@ -93,7 +96,7 @@ $(document).ready(function () {
       full_name == undefined
     ) {
       $("#student_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Full name required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Full name required.</div>"
       );
       $("#update_full_name").focus();
       return false;
@@ -106,7 +109,7 @@ $(document).ready(function () {
       emailid == undefined
     ) {
       $("#student_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>"
       );
       $("#update_emailid").focus();
       return false;
@@ -119,7 +122,7 @@ $(document).ready(function () {
 
     if (!validateEmail(emailid)) {
       $("#student_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Email is invalid.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Email is invalid.</div>"
       );
       $("#update_emailid").focus();
       return false;
@@ -132,7 +135,7 @@ $(document).ready(function () {
       contact == undefined
     ) {
       $("#student_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Contact number is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Contact number is required.</div>"
       );
       $("#update_contact").focus();
       return false;
@@ -171,7 +174,7 @@ $(document).ready(function () {
         } else {
           $("#btn_update_course_category").attr("disabled", false);
           $("#student_update_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );

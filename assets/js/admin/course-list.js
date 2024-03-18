@@ -18,6 +18,9 @@ $(document).ready(function () {
   $("#btn_add_course_modal").click(function () {
     $("#add-course-modal").modal("show");
   });
+  $('.modal-close').click(function(){
+    $("#add-course-modal").modal("hide");
+  })
 
   $("#course_image, #update_course_image").change(function () {
     var file = this.files[0];
@@ -68,7 +71,7 @@ $(document).ready(function () {
       course_category_id == undefined
     ) {
       $("#course_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category is required.</div>"
       );
       $("#course_category_id").focus();
       return false;
@@ -81,7 +84,7 @@ $(document).ready(function () {
       course_name == undefined
     ) {
       $("#course_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course name is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course name is required.</div>"
       );
       $("#course_name").focus();
       return false;
@@ -94,7 +97,7 @@ $(document).ready(function () {
       course_info == undefined
     ) {
       $("#course_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course related general information is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course related general information is required.</div>"
       );
       $("#course_info").focus();
       return false;
@@ -107,7 +110,7 @@ $(document).ready(function () {
       course_image == undefined
     ) {
       $("#course_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course image is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course image is required.</div>"
       );
       $("#course_image").focus();
       return false;
@@ -120,7 +123,7 @@ $(document).ready(function () {
       course_actual_price == undefined
     ) {
       $("#course_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course actual price is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course actual price is required.</div>"
       );
       $("#course_actual_price").focus();
       return false;
@@ -133,7 +136,7 @@ $(document).ready(function () {
       course_sell_price == undefined
     ) {
       $("#course_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course sell price is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course sell price is required.</div>"
       );
       $("#course_sell_price").focus();
       return false;
@@ -146,7 +149,7 @@ $(document).ready(function () {
       course_duration_number_of_days == undefined
     ) {
       $("#course_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course duration (number of days) is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course duration (number of days) is required.</div>"
       );
       $("#course_duration_number_of_days").focus();
       return false;
@@ -159,7 +162,7 @@ $(document).ready(function () {
       course_number_of_installments == undefined
     ) {
       $("#course_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course number of installments is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course number of installments is required.</div>"
       );
       $("#course_number_of_installments").focus();
       return false;
@@ -172,7 +175,7 @@ $(document).ready(function () {
       course_start_date == undefined
     ) {
       $("#course_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course start date is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course start date is required.</div>"
       );
       $("#course_start_date").focus();
       return false;
@@ -185,7 +188,7 @@ $(document).ready(function () {
       course_end_date == undefined
     ) {
       $("#course_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course end date is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course end date is required.</div>"
       );
       $("#course_end_date").focus();
       return false;
@@ -198,7 +201,7 @@ $(document).ready(function () {
       is_allow_purchase_after_expire == undefined
     ) {
       $("#course_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Is Course allowed to purchase after end date is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Is Course allowed to purchase after end date is required.</div>"
       );
       $("#is_allow_purchase_after_expire").focus();
       return false;
@@ -256,7 +259,7 @@ $(document).ready(function () {
         } else {
           $("#btn_add_course_category").attr("disabled", false);
           $("#course_add_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );
@@ -374,6 +377,9 @@ $(document).ready(function () {
           $("#course_img").html("");
           $("#course_img").html(res.course_details.course_image);
           $("#update-course-modal").modal("show");
+          $('.modal-close').click(function(){
+            $("#update-course-modal").modal("hide");
+          })
         } else {
           generateNotification("error", res.message);
           return false;
@@ -415,7 +421,7 @@ $(document).ready(function () {
       course_category_id == undefined
     ) {
       $("#course_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course category is required.</div>"
       );
       $("#update_course_category_id").focus();
       return false;
@@ -428,7 +434,7 @@ $(document).ready(function () {
       course_name == undefined
     ) {
       $("#course_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course name is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course name is required.</div>"
       );
       $("#update_course_name").focus();
       return false;
@@ -441,7 +447,7 @@ $(document).ready(function () {
       course_info == undefined
     ) {
       $("#course_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course related general information is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course related general information is required.</div>"
       );
       $("#update_course_info").focus();
       return false;
@@ -454,7 +460,7 @@ $(document).ready(function () {
       course_actual_price == undefined
     ) {
       $("#course_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course actual price is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course actual price is required.</div>"
       );
       $("#update_course_actual_price").focus();
       return false;
@@ -467,7 +473,7 @@ $(document).ready(function () {
       course_sell_price == undefined
     ) {
       $("#course_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course sell price is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course sell price is required.</div>"
       );
       $("#update_course_sell_price").focus();
       return false;
@@ -480,7 +486,7 @@ $(document).ready(function () {
       course_duration_number_of_days == undefined
     ) {
       $("#course_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course duration (number of days) is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course duration (number of days) is required.</div>"
       );
       $("#update_course_duration_number_of_days").focus();
       return false;
@@ -493,7 +499,7 @@ $(document).ready(function () {
       course_number_of_installments == undefined
     ) {
       $("#course_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course number of installments is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course number of installments is required.</div>"
       );
       $("#update_course_number_of_installments").focus();
       return false;
@@ -506,7 +512,7 @@ $(document).ready(function () {
       course_start_date == undefined
     ) {
       $("#course_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course start date is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course start date is required.</div>"
       );
       $("#update_course_start_date").focus();
       return false;
@@ -519,7 +525,7 @@ $(document).ready(function () {
       course_end_date == undefined
     ) {
       $("#course_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course end date is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Course end date is required.</div>"
       );
       $("#update_course_end_date").focus();
       return false;
@@ -532,7 +538,7 @@ $(document).ready(function () {
       is_allow_purchase_after_expire == undefined
     ) {
       $("#course_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Is Course allowed to purchase after end date is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Is Course allowed to purchase after end date is required.</div>"
       );
       $("#update_is_allow_purchase_after_expire").focus();
       return false;
@@ -592,7 +598,7 @@ $(document).ready(function () {
         } else {
           $("#btn_update_course_category").attr("disabled", false);
           $("#course_update_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );

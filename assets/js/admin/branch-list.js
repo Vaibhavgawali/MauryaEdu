@@ -2,6 +2,11 @@ $(document).ready(function () {
   //--- Open add branch modal
   $("#btn_add_branch_modal").click(function () {
     $("#add-branch-modal").modal("show");
+    $('.modal-close').click(function(){
+      $("#add-branch-modal").modal("hide");
+      $('#update-branch-modal').modal('hide');
+    })
+  
   });
 
   $("#branch_contact").keypress(function (e) {
@@ -35,7 +40,7 @@ $(document).ready(function () {
       branch_name == undefined
     ) {
       $("#branch_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Branch is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Branch is required.</div>"
       );
       $("#branch_name").focus();
       return false;
@@ -48,7 +53,7 @@ $(document).ready(function () {
       branch_emailid == undefined
     ) {
       $("#branch_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>"
       );
       $("#branch_emailid").focus();
       return false;
@@ -61,7 +66,7 @@ $(document).ready(function () {
 
     if (!validateEmail(branch_emailid)) {
       $("#branch_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Email is invalid.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Email is invalid.</div>"
       );
       $("#branch_emailid").focus();
       return false;
@@ -74,15 +79,15 @@ $(document).ready(function () {
       branch_contact == undefined
     ) {
       $("#branch_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Contact is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Contact is required.</div>"
       );
       $("#branch_contact").focus();
       return false;
     }
 
     if (branch_contact.length !== 10) {
-      $("#branch_admin_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Contact is invalid.</div>"
+      $("#branch_add_status").html(
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Contact is invalid.</div>"
       );
       $("#branch_contact").focus();
       return false;
@@ -95,7 +100,7 @@ $(document).ready(function () {
       branch_address == undefined
     ) {
       $("#branch_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Address is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Address is required.</div>"
       );
       $("#branch_address").focus();
       return false;
@@ -132,7 +137,7 @@ $(document).ready(function () {
         } else {
           $("#btn_add_branch").attr("disabled", false);
           $("#branch_add_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );
@@ -213,6 +218,9 @@ $(document).ready(function () {
           );
 
           $("#update-branch-modal").modal("show");
+          $('.modal-close').click(function(){
+            $('#update-branch-modal').modal('hide');
+          })
         } else {
           generateNotification("error", res.message);
           return false;
@@ -239,7 +247,7 @@ $(document).ready(function () {
       branch_name == undefined
     ) {
       $("#branch_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Branch is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Branch is required.</div>"
       );
       $("#update_branch_name").focus();
       return false;
@@ -252,7 +260,7 @@ $(document).ready(function () {
       branch_emailid == undefined
     ) {
       $("#branch_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>"
       );
       $("#update_branch_emailid").focus();
       return false;
@@ -265,7 +273,7 @@ $(document).ready(function () {
 
     if (!validateEmail(branch_emailid)) {
       $("#branch_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Email is invalid.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Email is invalid.</div>"
       );
       $("#update_branch_emailid").focus();
       return false;
@@ -278,7 +286,7 @@ $(document).ready(function () {
       branch_contact == undefined
     ) {
       $("#branch_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Contact is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Contact is required.</div>"
       );
       $("#update_branch_contact").focus();
       return false;
@@ -286,7 +294,7 @@ $(document).ready(function () {
 
     if (branch_contact.length !== 10) {
       $("#branch_admin_add_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Contact is invalid.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Contact is invalid.</div>"
       );
       $("#update_branch_contact").focus();
       return false;
@@ -299,7 +307,7 @@ $(document).ready(function () {
       branch_address == undefined
     ) {
       $("#branch_update_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Adress is required.</div>"
+        "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Adress is required.</div>"
       );
       $("#update_branch_address").focus();
       return false;
@@ -338,7 +346,7 @@ $(document).ready(function () {
         } else {
           $("#btn_update_branch").attr("disabled", false);
           $("#branch_update_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='alert alert-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );
