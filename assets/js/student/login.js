@@ -6,13 +6,13 @@ $(document).ready(function(){
 		var password = $("#password").val();
 
 		if(emailid=='' || emailid==null || emailid=='undefined' || emailid==undefined){
-			$("#login_status").html("<div class='alert alert-secondary text-center' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>");
+			$("#login_status").html("<div class='text-danger text-center' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>");
 			$("#emailid").focus();
 			return false;
 		}
 
 		if(password=='' || password==null || password=='undefined' || password==undefined){
-			$("#login_status").html("<div class='alert alert-secondary text-center' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Password is required.</div>");
+			$("#login_status").html("<div class='text-danger text-center' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Password is required.</div>");
 			$("#password").focus();
 			return false;
 		}
@@ -41,7 +41,7 @@ $(document).ready(function(){
                 }
                 else{
 
-                    $("#login_status").html("<div class='alert alert-secondary text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> "+res.message+"</div>");
+                    $("#login_status").html("<div class='text-danger text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> "+res.message+"</div>");
                     return false;
                 }
             }
@@ -56,7 +56,7 @@ $(document).ready(function(){
 		var emailid = $("#emailid").val();
 
 		if(emailid=='' || emailid==null || emailid=='undefined' || emailid==undefined){
-			$("#forgot_password_status").html("<div class='alert alert-secondary text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>");
+			$("#forgot_password_status").html("<div class='text-danger text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>");
 			$("#emailid").focus();
 			return false;
 		}
@@ -81,12 +81,12 @@ $(document).ready(function(){
                 $("#loader-spin").hide();
                 
                 if(res.status==true){
-                	$("#forgot_password_status").html("<div class='alert alert-success text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-check'></i> "+res.message+"</div>");
+                	$("#forgot_password_status").html("<div class='text-success text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-check'></i> "+res.message+"</div>");
                     return false;
                 }
                 else{
 					$("#btn_forgot_password_submit").attr('disabled', false);
-                    $("#forgot_password_status").html("<div class='alert alert-secondary text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> "+res.message+"</div>");
+                    $("#forgot_password_status").html("<div class='text-danger text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> "+res.message+"</div>");
                     return false;
                 }
             }

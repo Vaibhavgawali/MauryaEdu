@@ -1,5 +1,11 @@
 $(document).ready(function () {
   // datatble initialization
+  $(".modal-close").click(()=>
+  {
+    
+    $("#update-student-modal").modal("hide");
+
+  })
   var dataTable = $("#student_list").DataTable({
     order: [[1, "asc"]],
     dom: "lBfrtip",
