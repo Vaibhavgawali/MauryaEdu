@@ -106,7 +106,6 @@
 
 </script>
 <?php loadJs($application_version); ?>
-
-</body>
-
+    <!-- End custom js for this page -->
+  </body>
 </html>
