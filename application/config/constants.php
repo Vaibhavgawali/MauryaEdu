@@ -138,5 +138,3 @@ else{
     define( 'RAZOR_KEY_ID', 'rzp_test_4OaRHILaXqcwlp');
     define( 'RAZOR_KEY_SECRET', 'v9cHLHTvEjtLQ1zBRYdyDSlY');
 }
-
-define('APP_LINK','https://play.google.com/store/apps/details?id=com.rahuldhanawade.chemcaliba');
