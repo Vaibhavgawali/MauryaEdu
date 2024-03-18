@@ -1,7 +1,7 @@
 $(document).ready(function () {
   var page_number = parseInt($("#page_num").val());
 
-  // var logged_in_student_id = $("#logged_in_student_id").val();
+  var logged_in_student_id = $("#logged_in_student_id").val();
 
   var current_url = window.location.href;
   current_url = current_url.split("/");
