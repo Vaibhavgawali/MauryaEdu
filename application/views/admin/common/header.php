@@ -19,8 +19,11 @@
                 </div>
               </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-account me-2 text-success"></i>Profile</a>
+                  <a class="dropdown-item" href="<?php echo base_url('admin/my-profile') ?>">
+                    <i class="dropdown-icon mdi mdi-account-outline "></i> Profile
+                  </a>
+                  <a class="dropdown-item" href="<?php echo base_url('admin/change-password') ?>">
+            <i class="mdi mdi-cached me-2 text-success"></i> Change Password </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="<?php echo base_url('admin/logout')?>">
                   <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
