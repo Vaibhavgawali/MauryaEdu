@@ -100,7 +100,7 @@ class BranchAdmin extends Front_Controller
                 $message .= "Email ID: ".$admin_emailid." <br>";
                 $message .= "Password : ".$password_text." <br><br><br>";
                 $message .= "<b>Note:</b> This is a system generated email. Please do not reply to this email.<br><br>";
-                $message .= "Thanks,<br>MouryaEdu";
+                $message .= "Thanks,<br>MauryaEdu";
 
                 if(IS_LIVE){
                     sendEmail($admin_emailid, 'Registration Details - '.COMPANY_NAME, $message, "", "", '', '','');

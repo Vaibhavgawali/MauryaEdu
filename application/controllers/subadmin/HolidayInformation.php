@@ -328,7 +328,7 @@ class HolidayInformation extends Front_Controller
                         }
                         
                         $message .= "<b>Note:</b> This is a system generated email. Please do not reply to this email.<br><br>";
-                        $message .= "Thanks,<br> ChemCaliba";
+                        $message .= "Thanks,<br> MauryaEdu";
 
                         if(IS_LIVE){
                             sendEmail($emailid, 'Holiday Information - '.COMPANY_NAME, $message, "", "", '', '','');

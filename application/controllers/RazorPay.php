@@ -212,7 +212,7 @@ class RazorPay extends Front_Controller
                 $message .= "<br><br>";
                 $message .= "login to 'Students Dashboard' to access your course.";
                 $message .= "<br><br><br>";
-                $message .= "Thanks,<br> Mourya";
+                $message .= "Thanks,<br> MauryaEdu";
 
                 if (IS_LIVE) {
                     sendEmail($emailid, 'Course Enrollment - ' . COMPANY_NAME, $message, "", "", '', '', '');

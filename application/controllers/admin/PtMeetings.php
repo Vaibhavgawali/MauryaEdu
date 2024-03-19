@@ -310,7 +310,7 @@ class PtMeetings extends Front_Controller
                         $message .= "A 'Parent-Teacher Meeting' has been scheduled for ".$pt_meetings_date." at ".$pt_meetings_time.".<br><br>";
                         $message .= "Requesting your parent(s) to attend this meeting.<br><br>";
                         $message .= "<b>Note:</b> This is a system generated email. Please do not reply to this email.<br><br>";
-                        $message .= "Thanks,<br> ChemCaliba";
+                        $message .= "Thanks,<br> MauryaEdu";
 
                         if(IS_LIVE){
                             sendEmail($emailid, 'Parent Teacher Meeting - '.COMPANY_NAME, $message, "", "", '', '','');

@@ -97,7 +97,7 @@ class Register extends Front_Controller
                 $message .= "Email ID: ".$emailid." <br>";
                 $message .= "Password : ".$password_text." <br><br><br>";
                 $message .= "<b>Note:</b> This is a system generated email. Please do not reply to this email.<br><br>";
-                $message .= "Thanks,<br>ChemCaliba";
+                $message .= "Thanks,<br>MauryaEdu";
 
                 if(IS_LIVE){
                     sendEmail($emailid, 'Registration Details - '.COMPANY_NAME, $message, "", "", '', '','');

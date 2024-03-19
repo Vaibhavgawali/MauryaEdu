@@ -312,7 +312,7 @@ class TestSchedules extends Front_Controller
                         $message .= "Please login to your dashboard for further details.<br><br>";
                         
                         $message .= "<b>Note:</b> This is a system generated email. Please do not reply to this email.<br><br>";
-                        $message .= "Thanks,<br> ChemCaliba";
+                        $message .= "Thanks,<br> MauryaEdu";
 
                         if(IS_LIVE){
                             sendEmail($emailid, 'Test Schedule - '.COMPANY_NAME, $message, "", "", '', '','');
