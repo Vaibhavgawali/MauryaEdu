@@ -182,7 +182,7 @@
 													<i class="mdi mdi-book-open-page-variant fs-4 "></i>
 												</button>
 												<select class="form-control" id="branch">
-													<option value="" selected disabled>Select</option>
+													<option value="" selected disabled>Select Branch</option>
 													<?php foreach ($branches as $branch) : ?>
 														<option value="<?php echo $branch['branch_id']; ?>"><?php echo $branch['branch_name']; ?></option>
 													<?php endforeach; ?>

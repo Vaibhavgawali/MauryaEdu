@@ -87,24 +87,20 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 define('IS_LIVE', 1);
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'chemcali_student_portal_live');
-define('DB_PASSWORD', 'CLrIGtGbRW$~;1B_#@Lg[^iL;IXl8(d1');
-define('DB_MAIN_DATABASE', 'chemcali_student_portal_live');
 
-define('DEFAULT_PASSWORD', 'Student@2023');
+define('DEFAULT_PASSWORD', 'Student@2024');
 
 define('ENCRIPTION_KEY', "@#BUTTER#@");
 
 define( 'COMPANY_NAME', 'MouryaEdu Student Portal');
-define( 'COMPANY_EMAIL', 'info@chemcaliba.com');
+define( 'COMPANY_EMAIL', 'info@mauryaedu.in');
 
 //----   Email
-define( 'SMTP_HOST', 'mail.chemcaliba.com');
+define( 'SMTP_HOST', 'smtp.hostinger.com');
 define( 'SMTP_PORT', 587);
-define( 'SMTP_USER', 'no-reply@chemcaliba.com');
-define( 'SMTP_PASSWORD', 'Chemcaliba@2024$');
-define( 'SMTP_FROM_NAME', 'ChemCaliba');
+define( 'SMTP_USER', 'noreply@mauryaedu.in');
+define( 'SMTP_PASSWORD', 'Info@Maurya#2345');
+define( 'SMTP_FROM_NAME', 'MauryaEdu');
 
 //----   SMS
 define( 'SMS_USER', 'CHEMCALIBA');
@@ -129,12 +125,4 @@ define( 'MAX_LENGTH_PASSWORD', 16);
 
 define( 'RESET_DEFAULT_PASSWORD', 'Chem@Edtech2023');
 
-//----  RAZOR PAY
-if(IS_LIVE){
-    define( 'RAZOR_KEY_ID', 'rzp_live_2lAX6lqJQEb5yi');
-    define( 'RAZOR_KEY_SECRET', 'lXB2UmzzQMZAcoeXGu5X5DxE');
-}
-else{
-    define( 'RAZOR_KEY_ID', 'rzp_test_4OaRHILaXqcwlp');
-    define( 'RAZOR_KEY_SECRET', 'v9cHLHTvEjtLQ1zBRYdyDSlY');
-}
+
