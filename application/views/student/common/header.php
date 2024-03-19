@@ -21,6 +21,8 @@
             <img src="<?php echo $img_path; ?>" alt="image">
             <span class="availability-status online"></span>
           </div>
+          <input type="hidden" id="logged_in_student_id"
+									value="<?= isset($studentInfo['student_id']) && $studentInfo['student_id'] != '' ? $studentInfo['student_id'] : '0'; ?>" />
           <div class="nav-profile-text">
             <p class="mb-1 text-black"><?php echo $studentInfo['full_name']; ?></p>
           </div>

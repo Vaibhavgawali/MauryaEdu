@@ -211,7 +211,7 @@ $route['admin/discount-coupon-add'] = 'admin/DiscountCoupon/AddDiscountCoupon';
 $route['admin/discount-coupon-list-ajax'] = 'admin/DiscountCoupon/DiscountCouponListAjax';
 $route['admin/discount-coupon-update'] = 'admin/DiscountCoupon/UpdateDiscountCoupon';
 
-//----Contact Us List
+//----Contact Us List               
 $route['admin/contact-list'] = 'admin/Contacts';
 $route['admin/contact-list-ajax'] = 'admin/Contacts/ContactsListAjax';
 $route['admin/contact-delete'] = 'admin/Contacts/DeleteContact';
