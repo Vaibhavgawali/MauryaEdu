@@ -353,7 +353,7 @@ class TestRecords extends Front_Controller
                 $message .="<tr><th align='left'>Total Wrong Questions</th><td colspan='8'>".$no_of_wrong_questions."</td></tr>";
                 $message .= "</table><br><br><br>";
                 $message .= "<b>Note:</b> This is a system generated email. Please do not reply to this email.<br><br>";
-                $message .= "Thanks,<br> ChemCaliba";
+                $message .= "Thanks,<br> MauryaEdu";
 
                 if(IS_LIVE){
                     sendEmail($emailid, 'Test Result - '.COMPANY_NAME, $message, "", "", '', '','');

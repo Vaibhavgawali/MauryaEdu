@@ -48,6 +48,7 @@ class Register extends Front_Controller
         $branch = filter_smart($post_data['branch']);
 
         $get_Student_Details = $this->Student_Details_Model->getStudentDetailsByEmail($emailid);
+        $get_Branch_Details = $this->Branch_Model->getBranchDetailsById($branch);
 
         if(empty($get_Student_Details)){
 
@@ -95,9 +96,10 @@ class Register extends Front_Controller
                 $message .= "Please use below details to login to your account.<br><br><br>";
                 $message .= "Login Url: <a href=".base_url()."student/login>".base_url()."student/login</a> <br>";
                 $message .= "Email ID: ".$emailid." <br>";
-                $message .= "Password : ".$password_text." <br><br><br>";
+                $message .= "Password : ".$password_text." <br><br>";
+                $message .= "You are registered to : ".$get_Branch_Details['branch_name']." Branch at ".$get_Branch_Details['branch_address']."<br><br><br>";
                 $message .= "<b>Note:</b> This is a system generated email. Please do not reply to this email.<br><br>";
-                $message .= "Thanks,<br>ChemCaliba";
+                $message .= "Thanks,<br> MauryaEdu";
 
                 if(IS_LIVE){
                     sendEmail($emailid, 'Registration Details - '.COMPANY_NAME, $message, "", "", '', '','');

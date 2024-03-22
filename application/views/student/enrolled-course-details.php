@@ -106,56 +106,115 @@
 
                                                                     $course_expired = $course_details['is_course_expired'];
 
-                                                                    ?></p>
+                                if($course_expired){
+                            ?>
 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-xl-3">
-                                    <div class="d-flex gap-3  align-items-center ">
-                                        <button type="button" class="btn btn-lg btn-inverse-info btn-rounded btn-icon">
-                                            <i class="mdi mdi-clock-fast"></i>
-                                        </button>
-                                        <div class="pt-3">
-                                            <h6 class="text-muted">Course Duration</h6>
-                                            <p class="text-muted"><?php echo $course_details['course_duration_number_of_days'] . " days"; ?></p>
+                                <span class="text-danger"><b>Course is expired...</b></span>
 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-xl-4">
-                                    <div class="d-flex gap-3  align-items-center ">
-                                        <button type="button" class="btn btn-lg btn-inverse-warning btn-rounded btn-icon">
-                                            <i class="mdi mdi-clock-alert"></i>
-                                        </button>
-                                        <div class="pt-3">
-                                            <h6 class="text-muted">Valid Upto</h6>
-                                            <p class="text-muted"><?php echo $course_details['valid_upto']; ?></p>
+                            <?php
+                                }
+                            ?>
+                            
+                            <?php
+                                if($course_details['whatsapp_group_link'] != '')
+                                {
+                                    ?>
+                                    <a target="_blank" href="<?php echo $course_details['whatsapp_group_link'] ; ?>" class="mt-2 btn btn-sm btn-pill btn-success"><i class="fa fa-whatsapp fa-4" aria-hidden="true"></i></a>
+                                    <?php
+                                }
+                            ?>
+                            <?php
+                                if($course_details['telegram_group_link'] != '')
+                                {
+                                    ?>
+                                    <a target="_blank" href="<?php echo $course_details['telegram_group_link'] ; ?>" class="mt-2 btn btn-sm btn-pill btn-info"><i class="fa fa-telegram fa-4" aria-hidden="true"></i></a>
+                                    <?php
+                                }
+                            ?>                    
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <table class="table table-bordered table-hover my-5">
+                                <tr>
+                                    <th><dt>Paid Price</dt></th>
+                                    <td><dd><i class="fa fa-rupee"></i> <?php echo $course_details['paid_price'] ; ?></dd></td>
+                                </tr>
+                                <tr>
+                                    <th><dt>Course Duration</dt></th>
+                                    <td><dd><?php echo $course_details['no_of_days']." days" ; ?></dd></td>
+                                </tr>
+                                <tr>
+                                    <th><dt>Valid Upto</dt></th>
+                                    <td><dd><?php echo $course_details['valid_upto'] ; ?></dd></td>
+                                </tr>
+                            </table>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <?php
-            if (isset($course_video_details) && count($course_video_details) > 0) {
-            ?>
-                <div class="row mt-5">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-title pt-3 px-3">Lectures </div>
-                            <div class="accordion" id="accordionExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Lecture List
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
+                    </div>    
+
+                    <!-- Course Video Links : START-->
+                    <?php
+                       // if(isset($course_video_details) && count($course_video_details) > 0)
+                        {
+                            ?>
+                            <!-- <div class="col-md-12 ">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Course Video Links</h3>
+                                    </div>   
+
+                                    <div class="card-body">
+                                        <div class="panel-group1" id="video_links_accordion">
+                                            <div class="panel panel-default mb-4">
+                                                <div class="panel-heading1 ">
+                                                    <h4 class="panel-title1">
+                                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false">Click Here To Get Video Links</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
+                                                    <div class="panel-body">
+                                                        <div class="list-group">
+                                                                                                        
+                                                            <?php
+                                                                for($i=0;$i<count($course_video_details);$i++)
+                                                                {
+                                                                    $active_link = $i%2 == 0 ? 'active' : '' ;        
+                                                                    
+                                                                    ?>
+                                                                    <a href="<?php echo $course_video_details[$i]->video_link; ?>" target="_blank" class="list-group-item list-group-item-action flex-column align-items-start <?php echo $active_link ; ?> course_video_links">
+                                                                        <div class="d-flex w-100 justify-content-between">
+                                                                            <h5 class="mb-1"><?php echo $course_video_details[$i]->video_title; ?></h5>
+                                                                            <small><?php echo $course_video_details[$i]->created_date; ?></small>
+                                                                        </div>                
+                                                                    </a>    
+                                                                    <?php
+                                                                }
+                                                            ?>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>     -->
+                            <?php    
+                        }
+                    ?>
+                    <!-- Course Video Links : END-->
+
+                    <!-- Course Chapters : START-->
+                    <?php
+                        if(isset($course_chapter_details) && count($course_chapter_details) > 0)
+                        {
+                            ?>
+                            <div class="col-md-12 ">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Course Chapters</h3>
+                                    </div>   
+
+                                    <div class="card-body">
+                                        <div class="panel-group1" id="chapters_accordion">
+
                                             <?php
                                             for ($i = 0; $i < count($course_video_details); $i++) {
                                                 $active_link = $i % 2 == 0 ? 'active' : '';

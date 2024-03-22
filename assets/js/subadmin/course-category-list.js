@@ -3,6 +3,10 @@ $(document).ready(function () {
   $("#btn_add_course_category_modal").click(function () {
     $("#add-course-category-modal").modal("show");
   });
+  $('.modal-close').click(function(){
+    $("#add-course-category-modal").modal("hide");
+    $("#update-course-category-modal").modal("hide");
+  })
 
   // add course category
   $("#btn_add_course_category").click(function () {

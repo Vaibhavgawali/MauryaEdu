@@ -18,6 +18,12 @@ $(document).ready(function () {
   $("#btn_add_course_modal").click(function () {
     $("#add-course-modal").modal("show");
   });
+  $('.modal-close').click(function(){
+    $("#add-course-modal").modal("hide");
+    $("#update-course-modal").modal("hide");
+   
+  })
+
 
   $("#course_image, #update_course_image").change(function () {
     var file = this.files[0];

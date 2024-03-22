@@ -69,34 +69,34 @@ $(document).ready(function () {
 
     if (current_password == "" || current_password == null) {
       $(".change_password_status").html(
-        "<div class='alert alert-secondary' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Empty! </strong> Current password.</div>"
+        "<div class='text-danger' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Empty! </strong> Current password.</div>"
       );
       return false;
     }
     if (new_password == "" || new_password == null) {
       $(".change_password_status").html(
-        "<div class='alert alert-secondary' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Empty field!</strong> Please enter new password.</div>"
+        "<div class='text-danger' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Empty field!</strong> Please enter new password.</div>"
       );
       return false;
     }
 
     if (confirm_password == "" || confirm_password == null) {
       $(".change_password_status").html(
-        "<div class='alert alert-secondary' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Empty field!</strong> Please Repeat your New Password!</div>"
+        "<div class='text-danger' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Empty field!</strong> Please Repeat your New Password!</div>"
       );
       return false;
     }
 
     if (new_password != confirm_password) {
       $(".change_password_status").html(
-        "<div class='alert alert-secondary' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Password Match Error! </strong>New password & confirm password not match</div>"
+        "<div class='text-danger' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Password Match Error! </strong>New password & confirm password not match</div>"
       );
       return false;
     }
 
     if (new_password.length < min_len) {
       $(".change_password_status").html(
-        "<div class='alert alert-secondary' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Error! </strong>New password should be of minimum " +
+        "<div class='text-danger' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Error! </strong>New password should be of minimum " +
           min_len +
           " characters</div>"
       );
@@ -105,7 +105,7 @@ $(document).ready(function () {
 
     if (new_password.length > max_len) {
       $(".change_password_status").html(
-        "<div class='alert alert-secondary' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Error! </strong>New password should be of maximum " +
+        "<div class='text-danger' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Error! </strong>New password should be of maximum " +
           max_len +
           " characters</div>"
       );
@@ -114,21 +114,21 @@ $(document).ready(function () {
 
     if (!containsUpperCharcase(new_password)) {
       $(".change_password_status").html(
-        "<div class='alert alert-secondary' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Error! </strong>New password must have atleast one upper case character</div>"
+        "<div class='text-danger' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Error! </strong>New password must have atleast one upper case character</div>"
       );
       return false;
     }
 
     if (!containsNumberDigitcase(new_password)) {
       $(".change_password_status").html(
-        "<div class='alert alert-secondary' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Error! </strong>New password must have atleast one digit</div>"
+        "<div class='text-danger' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Error! </strong>New password must have atleast one digit</div>"
       );
       return false;
     }
 
     if (!containsSpecialCharcase(new_password)) {
       $(".change_password_status").html(
-        "<div class='alert alert-secondary' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Error! </strong>New password must have atleast one special character</div>"
+        "<div class='text-danger' style='padding: 5px; margin-bottom: 5px;margin-left: 5px;margin-right: 5px;'><strong>Error! </strong>New password must have atleast one special character</div>"
       );
       return false;
     }

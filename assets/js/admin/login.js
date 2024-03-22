@@ -11,7 +11,7 @@ $(document).ready(function () {
       emailid == undefined
     ) {
       $("#login_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>"
+        "<div class='text-danger text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>"
       );
       $("#emailid").focus();
       return false;
@@ -24,7 +24,7 @@ $(document).ready(function () {
       password == undefined
     ) {
       $("#login_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Password is required.</div>"
+        "<div class='text-danger text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Password is required.</div>"
       );
       $("#password").focus();
       return false;
@@ -53,7 +53,7 @@ $(document).ready(function () {
           return false;
         } else {
           $("#login_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='text-danger text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );
@@ -76,7 +76,7 @@ $(document).ready(function () {
       emailid == undefined
     ) {
       $("#forgot_password_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>"
+        "<div class='text-danger text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>"
       );
       $("#emailid").focus();
       return false;
@@ -103,7 +103,7 @@ $(document).ready(function () {
 
         if (res.status == true) {
           $("#forgot_password_status").html(
-            "<div class='alert alert-success text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-check'></i> " +
+            "<div class='text-success text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-check'></i> " +
               res.message +
               "</div>"
           );
@@ -111,7 +111,7 @@ $(document).ready(function () {
         } else {
           $("#btn_forgot_password_submit").attr("disabled", false);
           $("#forgot_password_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='text-danger text-center' style='padding: 10px; margin-bottom: 10px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );

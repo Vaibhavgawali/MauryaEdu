@@ -1,5 +1,32 @@
 $(document).ready(function(){
+    let ImageDiv = $('.img_div');
+    let UploadImage = $('.upload_image');
+    let ImageDropBox = $(".img-dropbox");
+    let ImageInput = $('#upload_image');
+    let cancelBtn = $('.cancel-btn');
 
+
+    // Initially hide the img-dropbox
+
+    ImageDropBox.hide();
+    cancelBtn.hide();
+    
+    // Show img-dropbox and hide img-div when upload button is clicked
+    UploadImage.on('click', function(){
+        cancelBtn.show();
+        ImageDiv.hide();
+        ImageDropBox.show();
+    });
+    $('.modal-close').click(function(){
+        $('#uploadimageModal').modal('hide');
+    })
+
+    $("#edit_contact").on("click", function(){
+        $('.button_div').toggle();
+        $('.input-contact').prop('disabled', function(i, val) {
+            return !val;
+        });
+    });
     /*   Prevent entering charaters in mobile & phone number   */
     $("#contact").keypress(function (e) {
         //if the letter is not digit then display error and don't type anything
@@ -135,7 +162,7 @@ $(document).ready(function(){
         }
 
         $("#update_contact_status").html("");
-        $("#loader-spin").show();
+        // $("#loader-spin").show();
         $("#btn_update_contact").attr('disabled','disabled');
         
         var data = {
@@ -145,26 +172,43 @@ $(document).ready(function(){
             address : address,
             aadhar_number : aadhar_number
         };
+        // console.log(data);
 
         $.ajax({
             type: "post",
-            url:base_url+"student/update-contact-details",
-            dataType:'json',
-            data:data,
+            url: base_url + "student/update-contact-details",
+            dataType: 'json',
+            data: data,
             cache: false,
-            success:function(res){
-                $("#loader-spin").hide();
-                if(res.status==true){
-                	generateNotification('success', res.message);
-					setTimeout(function() { location.reload(true); }, 3500);
-                }
-                else{
-                	generateNotification('error', res.message);
+            success: function (res) {
+                // Print the response to console
+                console.log(res);
+                
+                if (res.status == true) {
+                    // Show success message or redirect to a new page
+                    // alert(res.message);
+                    // Reload the page after 3.5 seconds (3500 milliseconds)
+                    generateNotification('success', res.message);
+                    setTimeout(function () { 
+                        location.reload(true); 
+                    }, 3500);
+                } else {
+                    // Show error message or handle the error
+                    // alert(res.message);
+                    generateNotification('error', res.message);
                     $("#btn_update_contact").attr('disabled', false);
-                    return false;
                 }
+            },
+            error: function (xhr, status, error) {
+                // Handle AJAX error
+                // console.log(xhr.responseText);
+                // console.log(status);
+                // console.log(error);
+                // Enable the update button
+                $("#btn_update_contact").attr('disabled', false);
             }
         });
+        ;
 
 	});
 

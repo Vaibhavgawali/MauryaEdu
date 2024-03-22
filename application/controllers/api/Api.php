@@ -87,7 +87,7 @@ class Api extends Front_Controller
                     $message .= "Email ID: ".$emailid." <br>";
                     $message .= "Password : ".$password_text." <br><br><br>";
                     $message .= "<b>Note:</b> This is a system generated email. Please do not reply to this email.<br><br>";
-                    $message .= "Thanks,<br>ChemCaliba";
+                    $message .= "Thanks,<br>MauryaEdu";
 
                     if(IS_LIVE){
                         sendEmail($emailid, 'Registration Details - '.COMPANY_NAME, $message, "", "", '', '','');
@@ -1953,7 +1953,7 @@ class Api extends Front_Controller
             
             if($studentInfo)
             {
-                $merchant_order_id = "ChemCaliba-".date("YmdHis");
+                $merchant_order_id = "MauryaEdu-".date("YmdHis");
                 $description =    "Order # ".$merchant_order_id ;
 
                 $status = true;
@@ -2077,7 +2077,7 @@ class Api extends Front_Controller
                     $message .= "<br><br>";
                     $message .= "login to 'Students Dashboard' to access your course.";
                     $message .= "<br><br><br>";
-                    $message .= "Thanks,<br> ChemCaliba";
+                    $message .= "Thanks,<br> MauryaEdu";
 
                     if(IS_LIVE){
                         sendEmail($emailid, 'Course Enrollment - '.COMPANY_NAME, $message, "", "", '', '','');

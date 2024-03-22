@@ -24,7 +24,7 @@ $(document).ready(function () {
       full_name == undefined
     ) {
       $("#register_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Full Name is required.</div>"
+        "<div class='text-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Full Name is required.</div>"
       );
       $("#full_name").focus();
       return false;
@@ -37,7 +37,7 @@ $(document).ready(function () {
       emailid == undefined
     ) {
       $("#register_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>"
+        "<div class='text-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Email is required.</div>"
       );
       $("#emailid").focus();
       return false;
@@ -50,7 +50,7 @@ $(document).ready(function () {
 
     if (!validateEmail(emailid)) {
       $("#register_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Email is invalid.</div>"
+        "<div class='text-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>Invalid!</b> Email is invalid.</div>"
       );
       $("#emailid").focus();
       return false;
@@ -63,7 +63,7 @@ $(document).ready(function () {
       contact == undefined
     ) {
       $("#register_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Mobile number is required.</div>"
+        "<div class='text-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Mobile number is required.</div>"
       );
       $("#contact").focus();
       return false;
@@ -76,7 +76,7 @@ $(document).ready(function () {
       branch == undefined
     ) {
       $("#register_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Branch is required.</div>"
+        "<div class='text-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Branch is required.</div>"
       );
       $("#branch").focus();
       return false;
@@ -84,7 +84,7 @@ $(document).ready(function () {
 
     if ($("#terms_and_policy").prop("checked") == false) {
       $("#register_status").html(
-        "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Agree terms & condition is required.</div>"
+        "<div class='text-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> <b>EMPTY!</b> Agree terms & condition is required.</div>"
       );
       return false;
     } else {
@@ -122,7 +122,7 @@ $(document).ready(function () {
           return false;
         } else {
           $("#register_status").html(
-            "<div class='alert alert-secondary text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
+            "<div class='text-danger text-center' style='padding: 3px; margin-bottom: 3px;margin-left: 5px;margin-right: 5px;'><i class='fa fa-times-circle'></i> " +
               res.message +
               "</div>"
           );

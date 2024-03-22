@@ -8,21 +8,21 @@
   ?>
   <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
     <a class="navbar-brand brand-logo" href="index.html"><img src="<?php echo base_url('assets/images/logo.png'); ?>" alt="logo" /></a>
-    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="<?php echo base_url('assets/images/favicon.png'); ?>" alt="logo" /></a>
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-stretch">
     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
       <span class="mdi mdi-menu"></span>
     </button>
     <ul class="navbar-nav navbar-nav-right">
-    <input type="hidden" id="logged_in_student_id"
-									value="<?= isset($studentInfo['student_id']) && $studentInfo['student_id'] != '' ? $studentInfo['student_id'] : '0'; ?>" />
       <li class="nav-item nav-profile dropdown">
         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
           <div class="nav-profile-img">
             <img src="<?php echo $img_path; ?>" alt="image">
             <span class="availability-status online"></span>
           </div>
+          <input type="hidden" id="logged_in_student_id"
+									value="<?= isset($studentInfo['student_id']) && $studentInfo['student_id'] != '' ? $studentInfo['student_id'] : '0'; ?>" />
           <div class="nav-profile-text">
             <p class="mb-1 text-black"><?php echo $studentInfo['full_name']; ?></p>
           </div>

@@ -591,7 +591,7 @@ class Course extends Front_Controller
                         $message .= "Enroll yourself to get access.<br><br>";
                         
                         $message .= "<b>Note:</b> This is a system generated email. Please do not reply to this email.<br><br>";
-                        $message .= "Thanks,<br> ChemCaliba";
+                        $message .= "Thanks,<br> MauryaEdu";
 
                         if(IS_LIVE){
                             sendEmail($emailid, 'New Course Published - '.COMPANY_NAME, $message, "", "", '', '','');

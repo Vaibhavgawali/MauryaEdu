@@ -19,6 +19,7 @@ class Dashboard extends Front_Controller
         // print_r_custom($login_detail,1);
         $this->data['login_detail'] = $login_detail;
         $this->load->subadmintemplate('dashboard', $this->data);
+        
     }
 
 }
