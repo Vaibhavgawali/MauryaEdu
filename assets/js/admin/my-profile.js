@@ -1,4 +1,32 @@
 $(document).ready(function () {
+  let ImageDiv = $('.img_div');
+  let UploadImage = $('.upload_image');
+  let ImageDropBox = $(".img-dropbox");
+  let ImageInput = $('#upload_image');
+  let cancelBtn = $('.cancel-btn');
+
+
+  // Initially hide the img-dropbox
+
+  ImageDropBox.hide();
+  cancelBtn.hide();
+  
+  // Show img-dropbox and hide img-div when upload button is clicked
+  UploadImage.on('click', function(){
+      cancelBtn.show();
+      ImageDiv.hide();
+      ImageDropBox.show();
+  });
+  $('.modal-close').click(function(){
+      $('#uploadimageModal').modal('hide');
+  })
+
+  $("#edit_contact").on("click", function(){
+      $('.button_div').toggle();
+      $('.input-contact').prop('disabled', function(i, val) {
+          return !val;
+      });
+  });
   /*   Prevent entering charaters in mobile & phone number   */
   $("#contact").keypress(function (e) {
     //if the letter is not digit then display error and don't type anything

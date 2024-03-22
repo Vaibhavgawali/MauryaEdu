@@ -31,8 +31,9 @@ class Login extends Front_Controller
         //extract($post_data);
         $emailid = filter_smart($post_data['emailid']);
         $password = filter_smart($post_data['password']);
-        
+        // print_r($password);
         $password = hash('sha512', $password);
+        // print_r($password);
             
         $checkLogin = $this->Admin_Login_Model->checkAdminLogin($emailid,$password);
 
