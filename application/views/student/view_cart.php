@@ -217,10 +217,10 @@
                                 ?>
                                     <div class="row" id="coupon_div">
                                         <div class="col-12 col-sm-4">
-                                            <input class="productcart form-control mt-2" type="text" id="coupon_code" placeholder="Enter Coupon Code">
+                                            <!-- <input class="productcart form-control mt-2" type="text" id="coupon_code" placeholder="Enter Coupon Code"> -->
                                         </div>
                                         <div class="col-sm-8 d-flex  gap-3">
-                                            <a href="javascript:void(0)" class="btn btn-info mt-2 btn-md btn-gradient-success" id="apply_coupon">Apply</a>
+                                            <!-- <a href="javascript:void(0)" class="btn btn-info mt-2 btn-md btn-gradient-success" id="apply_coupon">Apply</a> -->
                                             <div class=" float-right">
                             <?php
                             if (isset($cart_details) && count($cart_details) == 0) {
@@ -233,7 +233,6 @@
                             <?php
                             if (isset($cart_details) && count($cart_details) > 0) {
                             ?>
-                                <!-- <a href="javascript:void(0)" class="btn btn-success mt-2 checkout_cart">Checkout <i class="fa fa-arrow-circle-right"></i></a> -->
                                 <button id="pay-btn" type="submit" onclick="razorpaySubmit(this);" class="btn btn-primary mt-2 btn-gradient-success">
                                     <i class="fa fa-arrow-circle-right"></i> Pay Now</button>
                             <?php

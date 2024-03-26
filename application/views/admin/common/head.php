@@ -27,7 +27,7 @@
 
 
 		<!-- Title -->
-		<title>Subadmin - Student Portal</title>
+		<title>Admin - Student Portal</title>
 		<link rel="stylesheet" href="<?php echo base_url('assets/fonts/fonts/font-awesome.min.css'); ?>">
 		<!-- Font Family-->
 		<link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">

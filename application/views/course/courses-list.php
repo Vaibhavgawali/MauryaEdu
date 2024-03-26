@@ -13,73 +13,73 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <!-- plugins:css -->
-    <link rel="icon" href="http://localhost/mauryaEdu/assets/images/favicon.png" type="image/x-icon" />
-    <link rel="shortcut icon" type="image/x-icon" href="http://localhost/mauryaEdu/assets/images/favicon.png" />
-    <link rel="stylesheet" href="http://localhost/mauryaEdu/assets/js/vendors/mdi/css/materialdesignicons.min.css.map">
-    <link rel="stylesheet" href="http://localhost/mauryaEdu/assets/js/vendors/css/vendor.bundle.base.css">
+    <link rel="icon" href="<?php echo base_url();?>/assets/images/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>/assets/images/favicon.png" />
+    <link rel="stylesheet" href="<?php echo base_url();?>/assets/js/vendors/mdi/css/materialdesignicons.min.css.map">
+    <link rel="stylesheet" href="<?php echo base_url();?>/assets/js/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="http://localhost/mauryaEdu/assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>/assets/css/style.css">
     <!-- End layout styles -->
 
 
     <!-- Title -->
     <title>Subadmin - Student Portal</title>
-    <link rel="stylesheet" href="http://localhost/mauryaEdu/assets/fonts/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>/assets/fonts/fonts/font-awesome.min.css">
     <!-- Font Family-->
     <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
 
     <!-- Dashboard Css -->
-    <!-- <link href="http://localhost/mauryaEdu/assets/css/dashboard.css" rel="stylesheet" /> -->
+    <!-- <link href="<?php echo base_url();?>/assets/css/dashboard.css" rel="stylesheet" /> -->
 
     <!-- c3.js Charts Plugin -->
-    <link href="http://localhost/mauryaEdu/assets/plugins/charts-c3/c3-chart.css" rel="stylesheet" />
+    <link href="<?php echo base_url();?>/assets/plugins/charts-c3/c3-chart.css" rel="stylesheet" />
 
     <!-- Custom scroll bar css-->
-    <link href="http://localhost/mauryaEdu/assets/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+    <link href="<?php echo base_url();?>/assets/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
 
     <!-- Sidemenu Css -->
-    <!-- <link href="http://localhost/mauryaEdu/assets/plugins/toggle-sidebar/sidemenu.css" rel="stylesheet" /> -->
+    <!-- <link href="<?php echo base_url();?>/assets/plugins/toggle-sidebar/sidemenu.css" rel="stylesheet" /> -->
 
     <!---Font icons-->
-    <link href="http://localhost/mauryaEdu/assets/plugins/iconfonts/plugin.css" rel="stylesheet" />
+    <link href="<?php echo base_url();?>/assets/plugins/iconfonts/plugin.css" rel="stylesheet" />
 
     <!-- custom style -->
-    <!-- <link href="http://localhost/mauryaEdu/assets/css/style.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="<?php echo base_url();?>/assets/css/style.css" rel="stylesheet" type="text/css" /> -->
 
     <!-- Jquery Toast css -->
-    <link href="http://localhost/mauryaEdu/assets/libs/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url();?>/assets/libs/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet" type="text/css" />
 
     <!-- third party css -->
-    <link href="http://localhost/mauryaEdu/assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://localhost/mauryaEdu/assets/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://localhost/mauryaEdu/assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://localhost/mauryaEdu/assets/libs/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url();?>/assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url();?>/assets/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url();?>/assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url();?>/assets/libs/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <!-- third party css end -->
 
     <!-- Jquery Confirm css -->
-    <link href="http://localhost/mauryaEdu/assets/css/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url();?>/assets/css/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
 
     <!-- select2 Plugin -->
-    <!-- <link href="http://localhost/mauryaEdu/assets/plugins/select2/select2.min.css" rel="stylesheet" /> -->
+    <!-- <link href="<?php echo base_url();?>/assets/plugins/select2/select2.min.css" rel="stylesheet" /> -->
 
     <!-- Time picker Plugin -->
-    <link href="http://localhost/mauryaEdu/assets/plugins/time-picker/jquery.timepicker.css" rel="stylesheet" />
+    <link href="<?php echo base_url();?>/assets/plugins/time-picker/jquery.timepicker.css" rel="stylesheet" />
 
     <!-- Date Picker Plugin -->
-    <link href="http://localhost/mauryaEdu/assets/plugins/date-picker/spectrum.css" rel="stylesheet" />
+    <link href="<?php echo base_url();?>/assets/plugins/date-picker/spectrum.css" rel="stylesheet" />
 
     <!-- Jquery Librarry -->
     <script type="text/javascript">
-        var SITEROOT = 'http://localhost/mauryaEdu/';
+        var SITEROOT = '<?php echo base_url();?>/';
         var current_year = 2024;
         var current_month = 03;
         var current_day = 26;
-        var base_url = 'http://localhost/mauryaEdu/';
+        var base_url = '<?php echo base_url();?>/';
     </script>
 </head>
 
@@ -90,8 +90,8 @@
 
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.html"><img src="http://localhost/mauryaEdu/assets/images/logo.png" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="http://localhost/mauryaEdu/assets/images/favicon.png" alt="logo" /></a>
+                <a class="navbar-brand brand-logo" href="index.html"><img src="<?php echo base_url();?>/assets/images/logo.png" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="<?php echo base_url();?>/assets/images/favicon.png" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -118,13 +118,13 @@
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="<?php echo base_url('student/login'); ?>">
-                            <span class="menu-title">Login</span>
+                            <span class="menu-title">Student Login</span>
                             <i class="mdi mdi mdi-login menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="<?php echo base_url('student/register'); ?>">
-                            <span class="menu-title">Register</span>
+                            <span class="menu-title">Student Register</span>
                             <i class="mdi mdi mdi-account menu-icon"></i>
                         </a>
                     </li>
@@ -166,7 +166,7 @@
     <!-- partial:partials/_footer.html -->
     <footer class="footer">
         <div class="container-fluid d-flex justify-content-between">
-            <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © Maurya 2024 </span>
+            <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © Mauryaedu 2024 </span>
             <span class="float-none float-sm-end mt-1 mt-sm-0 text-end">Designed & Developed By <a style="text-decoration: none;" href="https://www.zynovvatech.com/" target="_blank">Zynovvatech</a></span>
         </div>
     </footer>
@@ -179,57 +179,57 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="http://localhost/mauryaEdu/assets/js/vendors/vendor.bundle.base.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/vendors/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
-    <script src="http://localhost/mauryaEdu/assets/js/vendors/chart.js/Chart.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="<?php echo base_url();?>/assets/js/vendors/chart.js/Chart.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/jquery.cookie.js" type="text/javascript"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="http://localhost/mauryaEdu/assets/js/off-canvas.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/js/hoverable-collapse.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/js/misc.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/off-canvas.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/hoverable-collapse.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/misc.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="http://localhost/mauryaEdu/assets/js/dashboard.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/js/todolist.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/dashboard.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/todolist.js"></script>
 
     <!-- Dashboard js -->
-    <script src="http://localhost/mauryaEdu/assets/js/vendors/jquery-3.2.1.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/js/vendors/bootstrap.bundle.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/js/vendors/jquery.sparkline.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/js/vendors/selectize.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/js/vendors/jquery.tablesorter.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/js/vendors/circle-progress.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/plugins/rating/jquery.rating-stars.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/vendors/jquery-3.2.1.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/vendors/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/vendors/jquery.sparkline.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/vendors/selectize.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/vendors/jquery.tablesorter.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/vendors/circle-progress.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/plugins/rating/jquery.rating-stars.js"></script>
 
     <!--Select2 js -->
-    <script src="http://localhost/mauryaEdu/assets/plugins/select2/select2.full.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/plugins/select2/select2.full.min.js"></script>
 
     <!-- Timepicker js -->
-    <script src="http://localhost/mauryaEdu/assets/plugins/time-picker/jquery.timepicker.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/plugins/time-picker/toggles.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/plugins/time-picker/jquery.timepicker.js"></script>
+    <script src="<?php echo base_url();?>/assets/plugins/time-picker/toggles.min.js"></script>
 
     <!-- Datepicker js -->
-    <script src="http://localhost/mauryaEdu/assets/plugins/date-picker/spectrum.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/plugins/date-picker/jquery-ui.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/plugins/input-mask/jquery.maskedinput.js"></script>
+    <script src="<?php echo base_url();?>/assets/plugins/date-picker/spectrum.js"></script>
+    <script src="<?php echo base_url();?>/assets/plugins/date-picker/jquery-ui.js"></script>
+    <script src="<?php echo base_url();?>/assets/plugins/input-mask/jquery.maskedinput.js"></script>
 
     <!-- third party js -->
-    <script src="http://localhost/mauryaEdu/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/libs/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/libs/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/libs/pdfmake/build/pdfmake.min.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/libs/pdfmake/build/vfs_fonts.js"></script>
-    <script src="http://localhost/mauryaEdu/assets/js/sweetalert.js"></script>
+    <script src="<?php echo base_url();?>/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/libs/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/libs/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/libs/pdfmake/build/vfs_fonts.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/sweetalert.js"></script>
     <script src="<?php echo base_url('assets/js/vendors/jquery-3.2.1.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/vendors/bootstrap.bundle.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/vendors/jquery.sparkline.min.js'); ?>"></script>
@@ -310,22 +310,22 @@
     </script>
 
     <!-- Tost-->
-    <script src="http://localhost/mauryaEdu/assets/libs/jquery-toast-plugin/jquery.toast.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/libs/jquery-toast-plugin/jquery.toast.min.js"></script>
 
     <!-- toastr init js-->
-    <script src="http://localhost/mauryaEdu/assets/js/toastr.init.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/toastr.init.js"></script>
 
     <!-- Fullside-menu Js-->
-    <script src="http://localhost/mauryaEdu/assets/plugins/toggle-sidebar/sidemenu.js"></script>
+    <script src="<?php echo base_url();?>/assets/plugins/toggle-sidebar/sidemenu.js"></script>
 
     <!-- Custom scroll bar Js-->
-    <script src="http://localhost/mauryaEdu/assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <!-- Custom Js-->
-    <script src="http://localhost/mauryaEdu/assets/js/custom.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/custom.js"></script>
 
     <!-- confirm init js-->
-    <script src="http://localhost/mauryaEdu/assets/js/jquery-confirm.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/jquery-confirm.min.js"></script>
 
     <script>
         function generateNotification(type, message) {
