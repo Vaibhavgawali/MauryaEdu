@@ -201,11 +201,6 @@ class RazorPay extends Front_Controller
                 $contact = $studentInfo['contact'];
                 $address = $studentInfo['address'];
 
-                //--- sms notification
-                if (IS_LIVE) {
-                    sendCourseEnrollmentSMS($full_name, $contact);
-                }
-
                 //--- email notification
                 $message = "Dear " . $full_name . ",<br><br>";
                 $message .= "Your Course Enrollment is successful !";

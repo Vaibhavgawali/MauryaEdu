@@ -75,6 +75,7 @@ class StudentEnroll extends Front_Controller
     public function StudentEnrollAddProcess()
     {
         checkBranchAdminLoginSession();
+        $studentInfo = $this->Student_Details_Model->getStudentDetailsById($student_id);
 
         $login_detail = $this->session->userdata('login_detail');
         $admin_id = $login_detail['admin_id'];
@@ -149,6 +150,47 @@ class StudentEnroll extends Front_Controller
                 $enrollment_master_id = $this->Common_Model->insertIntoTable($table_name, $insert_array);
 
                 if($enrollment_master_id){
+
+                    $full_name = $studentInfo['full_name'];
+                    $emailid = $studentInfo['emailid'];
+                    $contact = $studentInfo['contact'];
+                    $address = $studentInfo['address'];
+    
+                    //--- email notification
+                    $message = "Dear " . $full_name . ",<br><br>";
+                    $message .= "Your Course Enrollment is successful !";
+                    $message .= "<br><br>";
+                    $message .= "login to 'Students Dashboard' to access your course.";
+                    $message .= "<br><br><br>";
+                    $message .= "Thanks,<br> MauryaEdu";
+    
+                    if (IS_LIVE) {
+                        sendEmail($emailid, 'Course Enrollment - ' . COMPANY_NAME, $message, "", "", '', '', '');
+                    }
+    
+                    //--- email notification student
+                    $message_company = "";
+    
+                    $message_company = "Following Student has been enrolled for your program,<br><br>";
+                    $message_company .= "Student Name: " . $full_name;
+                    $message_company .= "<br><br>";
+                    $message_company .= "Mobile Number: " . $contact;
+                    $message_company .= "<br><br>";
+                    $message_company .= "Email Id: " . $emailid;
+                    $message_company .= "<br><br>";
+                    $message_company .= "Enrolled Course: " . $course_name;
+                    $message_company .= "<br><br>";
+                    $message_company .= "Course Purchasing Date: " . date('d/m/Y');
+                    $message_company .= "<br><br>";
+                    $message_company .= "Fee Paid: " . $paid_amount;
+                    $message_company .= "<br><br>";
+                    $message_company .= "Address: " . $address;
+                    $message_company .= "<br><br>";
+    
+                    if (IS_LIVE) {
+                        sendEmail(COMPANY_EMAIL, 'Course Enrollment - ' . COMPANY_NAME, $message_company, "", "", '', '', '');
+                    }
+
                     $status = true;
                     $res_message = "Enrollment added successfully.";
                 }else{
