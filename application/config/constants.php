@@ -102,12 +102,6 @@ define( 'SMTP_USER', 'noreply@mauryaedu.in');
 define( 'SMTP_PASSWORD', 'Info@Maurya#2345');
 define( 'SMTP_FROM_NAME', 'MauryaEdu');
 
-//----   SMS
-define( 'SMS_USER', 'CHEMCALIBA');
-define( 'API_KEY', 'F1F93-2D93F');
-define( 'API_REQUEST', 'Text');
-define( 'SMS_SENDER', 'CHMCAL');
-define( 'SMS_ROUTE', 'TRANS');
 
 //----   SMS TEMPLATES
 define( 'NEW_REGISTRATION_TEMPLATE', '1007324100881740092');
@@ -123,7 +117,7 @@ define( 'ASSIGNMENT_UPDATE_TEMPLATE', '1007413476232052265');
 define( 'MIN_LENGTH_PASSWORD', 8);
 define( 'MAX_LENGTH_PASSWORD', 16);
 
-define( 'RESET_DEFAULT_PASSWORD', 'Chem@Edtech2023');
+define( 'RESET_DEFAULT_PASSWORD', 'MauryaEdu@2024');
 //----  RAZOR PAY
 if(IS_LIVE){
     define( 'RAZOR_KEY_ID', 'rzp_live_2lAX6lqJQEb5yi');
@@ -134,6 +128,5 @@ else{
     define( 'RAZOR_KEY_SECRET', 'v9cHLHTvEjtLQ1zBRYdyDSlY');
 }
 
-define('APP_LINK','https://play.google.com/store/apps/details?id=com.rahuldhanawade.chemcaliba');
 
 

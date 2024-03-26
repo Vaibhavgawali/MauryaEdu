@@ -1,5 +1,6 @@
 $(document).ready(function () {
   var page_number = parseInt($("#page_num").val());
+  // console.log(page_number);
 
   var logged_in_student_id = $("#logged_in_student_id").val();
 
@@ -11,10 +12,11 @@ $(document).ready(function () {
   if (
     last_segment == "courses-list" ||
     last_segment == "student-portal" ||
-    last_segment == "lms-testing"
+    last_segment == "lms-testing" || last_segment =="mauryaEdu"
   ) {
     getAllCourses();
   }
+  
 
   //to get all courses
   function getAllCourses() {
