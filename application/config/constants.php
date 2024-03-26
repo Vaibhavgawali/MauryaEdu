@@ -124,5 +124,16 @@ define( 'MIN_LENGTH_PASSWORD', 8);
 define( 'MAX_LENGTH_PASSWORD', 16);
 
 define( 'RESET_DEFAULT_PASSWORD', 'Chem@Edtech2023');
+//----  RAZOR PAY
+if(IS_LIVE){
+    define( 'RAZOR_KEY_ID', 'rzp_live_2lAX6lqJQEb5yi');
+    define( 'RAZOR_KEY_SECRET', 'lXB2UmzzQMZAcoeXGu5X5DxE');
+}
+else{
+    define( 'RAZOR_KEY_ID', 'rzp_test_4OaRHILaXqcwlp');
+    define( 'RAZOR_KEY_SECRET', 'v9cHLHTvEjtLQ1zBRYdyDSlY');
+}
+
+define('APP_LINK','https://play.google.com/store/apps/details?id=com.rahuldhanawade.chemcaliba');
 
 

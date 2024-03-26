@@ -15,6 +15,13 @@
       <span class="mdi mdi-menu"></span>
     </button>
     <ul class="navbar-nav navbar-nav-right">
+    <li class="nav-item dropdown">
+              <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="<?php echo base_url('student/view-cart') ?>"  aria-expanded="false">
+                <i class="mdi mdi-cart-outline"></i>
+                <span class="count-symbol bg-warning"></span>
+              </a>
+           
+            </li>
       <li class="nav-item nav-profile dropdown">
         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
           <div class="nav-profile-img">
@@ -38,6 +45,7 @@
             <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
         </div>
       </li>
+      
     </ul>
     <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
       <span class="mdi mdi-menu"></span>
